@@ -8,36 +8,182 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-    <title>Meet Materialize</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/hamburgers.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="assets/js/easing.js"></script>
+    <script src="Scrollify/jquery.scrollify.js"></script>
+    <script>
+        //i initialize scrollify
+        $(function () {
+            $.scrollify({
+                section: ".example-classname",
+            });
+        });
+
+        // set up scrollify params and options
+        $.scrollify({
+            section: ".example-classname",
+            sectionName: "section-name",
+            interstitialSection: "",
+            easing: "easeOutExpo",
+            scrollSpeed: 1300,
+            offset: 0,
+            scrollbars: false,
+            standardScrollElements: "",
+            setHeights: true,
+            overflowScroll: true,
+            updateHash: true,
+            touchScroll: true,
+            before: function () { },
+            after: function () { },
+            afterResize: function () { },
+            afterRender: function () { }
+        });
+    </script>
+
+    <title>jR.web</title>
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col s12 l2" style="background: white; height: 100vh; text-align: center; overflow: scroll">
-            <img style=" width: 100%" src="assets/img/trees.jpg" alt="">
-            <img style=" width: 100%" src="assets/img/trees.jpg" alt="">
-            <img style=" width: 100%" src="assets/img/trees.jpg" alt="">
-            <img style=" width: 100%" src="assets/img/trees.jpg" alt="">
-            <img style=" width: 100%" src="assets/img/trees.jpg" alt="">
-            <img style=" width: 100%" src="assets/img/trees.jpg" alt="">
-            <img style=" width: 100%" src="assets/img/trees.jpg" alt="">
-            <img style=" width: 100%" src="assets/img/trees.jpg" alt="">
+
+    <div id="nav-main">
+        <div id="nav-container">
+            <div class="container-fluid">
+                <div class="row" style="height: 100vh">
+                    <div class="col s1 l6"></div>
+                    <div class="col s11 l6">
+                        <div class="row menu-row" id="menu-row-1" data-menu-target="home" data-row-number="1">
+                            <div class="col 2 menu-number" id="menu-1" data-menu-number="1">0 1</div>
+                            <div class="col 10 menu-item">home</div>
+                        </div>
+                        <div class="row menu-row" id="menu-row-2" data-menu-target="about" data-row-number="2">
+
+                            <div class="col 2 menu-number" id="menu-2" data-menu-number="2">0 2</div>
+                            <div class="col 10 menu-item">about</div>
+                        </div>
+                        <div class="row menu-row" id="menu-row-3" data-menu-target="portfolio" data-row-number="3">
+                            <div class="col 2 menu-number" id="menu-3" data-menu-number="portfolio">0 3</div>
+                            <div class="col 10 menu-item">portfolio</div>
+                        </div>
+                        <div class="row menu-row" id="menu-row-4" data-menu-target="musings" data-row-number="4">
+                            <div class="col 2 menu-number" id="menu-4" data-menu-number="4">0 4</div>
+                            <div class="col 10 menu-item">musings</div>
+                        </div>
+                        <div class="row menu-row" id="menu-row-5" data-menu-target="contact" data-row-number="5">
+                            <div class="col 2 menu-number" id="menu-5" data-menu-number="5">0 5</div>
+                            <div class="col 10 menu-item">contact</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col l9">img and content</div>
-        <div class="col l1">spacer</div>
     </div>
-</div>
-          
+
+    <div id="menu-wrapper">
+        <button id='nav-brand'>jR(web)</button>
+        <button id="nav-icon" data-state="closed">MENU</button>
+    </div>
+
+    <div class="example-classname" data-section-name="home">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col 12" style="text-align: center; padding: 0;">
+                    <div id="splash">
+                        <h1>Hello Atlanta</h1>
+                        <hr style="color: #2C3E87; width: 40em">
+                        <h6>Cheers to a sunny day in city!</h6>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="example-classname section-content" id="section-about" data-section-name="about"
+        style="background: #DB2424; color: #F3F1F3; text-align: left">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col l2"></div>
+                <div class="col l6">
+                    <h3>nice to meet you</h3>
+                    <h5>my name is john. i'm a fullstack web developer.</h5>
+                    <p>i build engaging websites and web applications. 3 years of experience with wordpress,
+                        hand-crafterd html, css, and jquery.</p>
+                </div>
+                <div class="col l4"></div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <div class="example-classname section-content" id="section-portfolio" data-section-name="portfolio">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col lg1">
+                    <div class="col lg5">
+                        <h1>selected works</h1>
+                        <h6>production sites, toy apps, and projects in-the-making</h6>
+                    </div>
+                    <div class="col lg5">
+
+                    </div>
+                    <div class="col lg1"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="example-classname section-content" data-section-name="musings">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col l12">
+                    <h1>musings</h1>
+                    <h6>latest from the agnecy. design, development, life, and learning.</h6>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="example-classname section-content" data-section-name="contact">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col l12">
+                    <h1>fux with me</h1>
+                    <h5>tiktaalikdesign@gmail.com</h5>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <footer style="position: fixed; z-index: 3; bottom: 0em; right: 0; font-size: 2em; margin: 0 2em 1em 0;">
+            <i class="fab fa-github"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+    </footer>
 
     <!-- Compiled and minified JavaScript -->
-    <script
-  src="https://code.jquery.com/jquery-3.4.0.min.js"
-  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-  crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script> -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/easing.js"></script>
+    <script src="Scrollify/jquery.scrollify.js"></script> -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
