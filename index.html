@@ -8,18 +8,28 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/hamburgers.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- jquery loaded first for loader scripts and scrollify.js  -->
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
+    <!-- easing library -->
     <script src="assets/js/easing.js"></script>
+
+    <!-- imperative to load scrollify before content -->
     <script src="Scrollify/jquery.scrollify.js"></script>
+
     <script>
-        //i initialize scrollify
+        // ----- begin initialize scrollify -------------------------------------- //
         $(function () {
             $.scrollify({
                 section: ".example-classname",
@@ -31,8 +41,8 @@
             section: ".example-classname",
             sectionName: "section-name",
             interstitialSection: "",
-            easing: "easeOutExpo",
-            scrollSpeed: 1300,
+            easing: "easeInOutExpo",
+            scrollSpeed: 675,
             offset: 0,
             scrollbars: false,
             standardScrollElements: "",
@@ -40,17 +50,33 @@
             overflowScroll: true,
             updateHash: true,
             touchScroll: true,
-            before: function () { },
-            after: function () { },
+            before: function () {
+                // store current section (going to is current) 
+                sectionCurrent = $.scrollify.currentIndex();
+
+                //update nav icons to the current color
+                $('.nav-item').css('color', sections[sectionCurrent].navColor);
+                $('.nav-item:hover').css('color', 'white');
+                console.log(sections[sectionCurrent]); // say current section in console
+            },
+            after: function () {
+                // reveals the splash
+                reveal();
+            },
             afterResize: function () { },
             afterRender: function () { }
         });
+        // ----- end initialize scrollify ---------------------------------------- //
     </script>
 
-    <title>jR.web</title>
+    <title>j. robertson portfolio</title>
 </head>
 
 <body>
+
+    <div id="portfolio-overlay">
+        <button id="close" style="background: none; border: none; margin: 2em 2em 0 0">CLOSE</button>
+    </div>
 
     <div id="nav-main">
         <div id="nav-container">
@@ -85,105 +111,134 @@
         </div>
     </div>
 
-    <div id="menu-wrapper">
-        <button id='nav-brand'>jR(web)</button>
-        <button id="nav-icon" data-state="closed">MENU</button>
-    </div>
+    <button id="nav-brand" class="nav-item">jr.web</button>
+    <button id="nav-icon" class="nav-item" data-state="closed">MENU</button>
 
-    <div class="example-classname" data-section-name="home">
+
+    <div class="example-classname" id="section-home" data-section-name="home">
         <div class="container-fluid">
             <div class="row">
-
                 <div class="col 12" style="text-align: center; padding: 0;">
                     <div id="splash">
-                        <h1>Hello Atlanta</h1>
-                        <hr style="color: #2C3E87; width: 40em">
-                        <h6>Cheers to a sunny day in city!</h6>
-                    </div>
+                        <h1 style="color: #1B7397">Hello World</h1>
+                        <h6 style="color: #001021">Cheers to a sunny day in the city.</h6>
+                        <button id="scroll-down" style="margin-top: 4em">
+                            <a class="btn-floating pulse" style="background: #1B7397"><i class="material-icons"
+                                    style="color: #0D1B2A; font-size: 2.5em">keyboard_arrow_down </i></a>
+                        </button>
 
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
+
 
     <div class="example-classname section-content" id="section-about" data-section-name="about"
-        style="background: #DB2424; color: #F3F1F3; text-align: left">
-        <div class="container-fluid ">
+        style="text-align: left; background: #0D1B2A; color: white">
+        <div class="container-fluid" id="about-splash">
             <div class="row">
                 <div class="col l2"></div>
-                <div class="col l6">
-                    <h3>nice to meet you</h3>
-                    <h5>my name is john. i'm a fullstack web developer.</h5>
-                    <p>i build engaging websites and web applications. 3 years of experience with wordpress,
-                        hand-crafterd html, css, and jquery.</p>
+                <div class="col l5" style="color: #30BCED">
+                    <h1 style="color: white">Mucho Gusto</h1>
+                    <h6 style="color: #BCED09">My name is John. I'm a fullstack web developer.</h6>
+                    <p>I create engaging websites and web applications. 3 years of experience with Wordpress,
+                        hand-crafted HTML5, CSS3, ES6, and jQuery.</p>
+
+                    <p>I also am familiar with MySQL, MongoDB, Express, Node, and Ruby on Rails.</p>
+                    <br>
+
+                    <a class="waves-effect waves-light btn" id="portfolio-explore">
+                        See My Experience
+                    </a>
+
+
                 </div>
-                <div class="col l4"></div>
+                <div class="col l5"></div>
             </div>
         </div>
+    </div>
 
-    </div>
-    </div>
     <div class="example-classname section-content" id="section-portfolio" data-section-name="portfolio">
-        <div class="container-fluid">
+        <div class="container-fluid" id="splash-portfolio">
             <div class="row">
-                <div class="col lg1">
-                    <div class="col lg5">
-                        <h1>selected works</h1>
-                        <h6>production sites, toy apps, and projects in-the-making</h6>
-                    </div>
-                    <div class="col lg5">
+                <div class="col l12">
+                    <h1>Select Works</h1>
+                    <h6>production sites, toy apps, and projects in-the-making</h6>
+                    <br>
+                    <button id="click" class="waves-effect waves-light btn">Explore My Work</button>
+                    <div id="portfolio-list"></div>
 
-                    </div>
-                    <div class="col lg1"></div>
                 </div>
             </div>
-
         </div>
     </div>
-    <div class="example-classname section-content" data-section-name="musings">
+
+
+
+    <div class="example-classname section-content" id="section-musings" data-section-name="musings"
+        style="background: #1E2032">
         <div class="container-fluid">
             <div class="row">
-
                 <div class="col l12">
                     <h1>musings</h1>
-                    <h6>latest from the agnecy. design, development, life, and learning.</h6>
+                    <h6>my latest on design, development, life, and learning.</h6>
                 </div>
-
-
             </div>
-
         </div>
     </div>
-    <div class="example-classname section-content" data-section-name="contact">
+
+    <div class="example-classname section-content" id="section-contact" data-section-name="contact"
+        style="background: #1E2032">
         <div class="container-fluid">
             <div class="row">
-
                 <div class="col l12">
-                    <h1>fux with me</h1>
+                    <h1>chat with me</h1>
                     <h5>tiktaalikdesign@gmail.com</h5>
                 </div>
-
             </div>
         </div>
-
     </div>
     </div>
 
-    <footer style="position: fixed; z-index: 3; bottom: 0em; right: 0; font-size: 2em; margin: 0 2em 1em 0;">
-            <i class="fab fa-github"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
+    <footer class="nav-item"
+        style="position: fixed; z-index: 3; bottom: 0em; right: 0; font-size: 2em; margin: 0 2em 1em 0">
+        <i class="fab fa-github"></i>
+        <i class="fab fa-linkedin-in"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
     </footer>
 
-    <!-- Compiled and minified JavaScript -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script> -->
+    <footer style="position: fixed; z-index: 3; bottom: 0em; left: 0; font-size: 2em; margin: 0 0em 1em 2em">
+        <div class="nav-item" id="nav-bottom-left" style="font-size: .6em;">tiktaalik.design@gmail.com</div>
+    </footer>
 
+<!---CURSORS--->
+<div class="your-cursor2"></div>
+<div class="follow2"></div>
+
+    <!-- additional js  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- <script src="assets/js/easing.js"></script>
-    <script src="Scrollify/jquery.scrollify.js"></script> -->
+
+    <script src="assets/js/jquery.awesome-cursor.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="assets/js/addthisshit2.js"></script>
     <script src="assets/js/main.js"></script>
+<script>
+$(document)
+.mousemove(function(e) {
+$('.your-cursor4')
+.eq(0)
+.css({
+left: e.pageX,
+top: e.pageY
+});
+});
+$(document).on("mousemove", function(e) {
+mouseX = e.pageX;
+mouseY = e.pageY;
+});
+</script>
 </body>
 
 </html>
