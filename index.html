@@ -6,43 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Compiled and minified CSS -->
+    <!-- Materialize CSS Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <!-- Hamburger Icons (for testing) -->
     <link rel="stylesheet" href="assets/css/hamburgers.css">
-
+    <!-- Font Awesome for icons (maybe just use material icon) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- jquery loaded first for loader scripts and scrollify.js  -->
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-
     <!-- easing library -->
     <script src="assets/js/easing.js"></script>
-
+    <!-- particles js -->
+    <script src="assets/js/particles.js"></script>
     <!-- imperative to load scrollify before content -->
     <script src="Scrollify/jquery.scrollify.js"></script>
-
+    <!-- scrollify initialization script -->
     <script>
-        // ----- begin initialize scrollify -------------------------------------- //
+        // intiliaze the scrollify library
         $(function () {
             $.scrollify({
-                section: ".example-classname",
+                section: ".section-scrollify",
             });
         });
 
-        // set up scrollify params and options
+        // Section properties
+        const sections = [
+            {
+                index: 0,
+                name: 'Home',
+                font: '',
+                cursor: '',
+                cursorFollow: '#30BCED',
+                accentOne: '',
+                navBlock: '#5941a9',
+                navIcon: '#06070E',
+                particles: '#30BCED'
+            },
+            {
+                index: 1,
+                name: 'About',
+                font: '',
+                cursor: '#5941a9',
+                cursorFollow: '#5941a9',
+                accentOne: '',
+                navBlock: '#FF4800',
+                navIcon: '#FCFCFC',
+                particles: '#FCFCFC'
+            },
+            {
+                index: 2,
+                name: 'Projects',
+                font: '',
+                cursor: '#FCFCFC',
+                cursorFollow: '#ff5817',
+                accentOne: '',
+                navBlock: '#30BCED',
+                navIcon: '#FCFCFC',
+                particles: '#FCFCFC'
+            },
+            {
+                index: 3,
+                name: 'Musings',
+                font: '',
+                cursor: '#ff5817',
+                cursorFollow: '#ff5817',
+                accentOne: '',
+                navBlock: '#30BCED',
+                navIcon: '#06070E',
+                particles: '#FF4800'
+            },
+            {
+                index: 4,
+                name: 'Contact',
+                font: '',
+                cursor: '#06070E',
+                cursorFollow: '#06070E',
+                accentOne: '',
+                navBlock: '#30BCED',
+                navIcon: '#FCFCFC',
+                particles: '#DCE1DE'
+            },
+            {
+                index: 5,
+                name: 'Footer',
+                font: '',
+                cursor: '',
+                cursorFollow: '#06070E',
+                accentOne: '',
+                navBlock: '#30BCED',
+                navIcon: '#FCFCFC',
+                particles: '#DCE1DE'
+            },
+        ]
+
+        // set up scrollify options
         $.scrollify({
-            section: ".example-classname",
+            section: ".section-scrollify",
             sectionName: "section-name",
-            interstitialSection: "",
-            easing: "easeInOutExpo",
-            scrollSpeed: 675,
+            interstitialSection: ".footer",
+            easing: "easeOutExpo",
+            scrollSpeed: 1100,
             offset: 0,
             scrollbars: false,
             standardScrollElements: "",
@@ -53,20 +123,48 @@
             before: function () {
                 // store current section (going to is current) 
                 sectionCurrent = $.scrollify.currentIndex();
+                console.log(`Scrolling to section ${sectionCurrent}`);
 
-                //update nav icons to the current color
-                $('.nav-item').css('color', sections[sectionCurrent].navColor);
-                $('.nav-item:hover').css('color', 'white');
-                console.log(sections[sectionCurrent]); // say current section in console
+                // update the pagination
+                $('.fill').css('height', (sectionCurrent * 2) + 'em');
+                $('.current-page').text(sectionCurrent + 1).toString();
+
+                // update nav-icons
+                // $('.nav-fixed').css('color', sectionCurrent);
+                $('.follow2').css('background', sections[sectionCurrent].cursorFollow);
+                $('.your-cursor2').css('background', sections[sectionCurrent].cursor);
+
+                // update the nav block reveal color
+                $('#nav-block').css('background', sections[sectionCurrent].navBlock);
+
+                console.log('yo ' + sections[sectionCurrent].navBlock);
+
+                $('button').css('color', sections[sectionCurrent].navIcon);
+                console.log(sections[sectionCurrent].navIcon);
+                // pJSDom[0].pJS.fn.particlesRefresh() // resets entire particles canvas
+
+                // adjust particles properties on the fly - shoutout to https://github.com/VincentGarreau/particles.js/issues/71 for the fix on this
+
+                // fixing the timing for the particle changes on scroll (needs to delay just slightly)
+                setTimeout(function () {
+                    const newColor = sections[sectionCurrent].particles;
+
+                    $.each(pJSDom[0].pJS.particles.array, function (i, p) {
+                        pJSDom[0].pJS.particles.array[i].color.value = newColor;
+                        pJSDom[0].pJS.particles.array[i].color.rgb = hexToRgb(newColor);
+
+                    });
+                }, 500)
+
             },
             after: function () {
-                // reveals the splash
-                reveal();
+
+
+                // After scroll events here
             },
             afterResize: function () { },
             afterRender: function () { }
         });
-        // ----- end initialize scrollify ---------------------------------------- //
     </script>
 
     <title>j. robertson portfolio</title>
@@ -74,171 +172,187 @@
 
 <body>
 
-    <div id="portfolio-overlay">
-        <button id="close" style="background: none; border: none; margin: 2em 2em 0 0">CLOSE</button>
+    <!-- this is the future prototype element for scrollify color changes and layer cursor interaction -->
+    <a>
+        <div class="nav-fixed nav-tl test-light">
+            <button data-state="closed" class="cursor-hover"
+                style="transform: rotate(-90deg); margin: 1em 0 0 -2.4em; font-family: geomanist-regular; font-size: 1.25em">
+                jr.web
+            </button>
+        </div>
+    </a>
+
+    <a>
+        <div class="nav-fixed nav-tr test-light">
+            <button id="nav-toggle" data-state="closed" class="cursor-hover">
+                MENU
+            </button>
+        </div>
+    </a>
+
+    <div class="pagination"
+        style=" position: fixed; z-index: 1000; left: 2.25em; bottom: 2em; height: 14em; text-align: left; font-family: geomanist-regular; color: white;">
+        <div class="current-page" style="color: #06070E">1</div>
+        <div class="pagination-container"
+            style="height: 10em; width: 2px; background: #28304417; margin: .25em 0 .25em .15em">
+
+            <div class="fill" style="background: #06070E; transition: 1.2s; height: 0.01em"></div>
+        </div>
+        <div class="last-page" style="color: #06070E">6</div>
     </div>
+
+    <a>
+        <div class="nav-fixed nav-bl test-light">
+            <button data-state="closed" class="cursor-hover">
+
+            </button>
+        </div>
+    </a>
+
+    <a>
+        <div class="nav-fixed nav-br test-light">
+            <button data-state="closed" class="cursor-hover">
+                <i class="fab fa-github"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+            </button>
+        </div>
+    </a>
+
+    <div id="nav-block" style="position: fixed; top: -100vh; height: 100vh; width: 100%; background: #2bc016"></div>
 
     <div id="nav-main">
-        <div id="nav-container">
-            <div class="container-fluid">
-                <div class="row" style="height: 100vh">
-                    <div class="col s1 l6"></div>
-                    <div class="col s11 l6">
-                        <div class="row menu-row" id="menu-row-1" data-menu-target="home" data-row-number="1">
-                            <div class="col 2 menu-number" id="menu-1" data-menu-number="1">0 1</div>
-                            <div class="col 10 menu-item">home</div>
-                        </div>
-                        <div class="row menu-row" id="menu-row-2" data-menu-target="about" data-row-number="2">
+        <div class="container-fluid right-align" style="padding: 2em; height: inherit">
+            <div class="row">
+                <div class="col l6"></div>
+                <div class="col s6 l3"
+                    style="padding-top: 6em; font-size: 2em; font-family: geomanist-regular; color: #FCFCFC">
+                    <div class="nav-link" data-nav-index="0">Home</div>
+                    <div class="nav-link" data-nav-index="1">About</div>
+                    <div class="nav-link" data-nav-index="2">Portfolio</div>
+                    <div class="nav-link" data-nav-index="3">Musings</div>
+                    <div class="nav-link" data-nav-index="4">Contact</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                            <div class="col 2 menu-number" id="menu-2" data-menu-number="2">0 2</div>
-                            <div class="col 10 menu-item">about</div>
-                        </div>
-                        <div class="row menu-row" id="menu-row-3" data-menu-target="portfolio" data-row-number="3">
-                            <div class="col 2 menu-number" id="menu-3" data-menu-number="portfolio">0 3</div>
-                            <div class="col 10 menu-item">portfolio</div>
-                        </div>
-                        <div class="row menu-row" id="menu-row-4" data-menu-target="musings" data-row-number="4">
-                            <div class="col 2 menu-number" id="menu-4" data-menu-number="4">0 4</div>
-                            <div class="col 10 menu-item">musings</div>
-                        </div>
-                        <div class="row menu-row" id="menu-row-5" data-menu-target="contact" data-row-number="5">
-                            <div class="col 2 menu-number" id="menu-5" data-menu-number="5">0 5</div>
-                            <div class="col 10 menu-item">contact</div>
-                        </div>
+    <div class="section-scrollify" id="one" data-section-name="home" style="background: #FCFCFC; color: #06070E">
+        <div class="container" style="padding-top: 18em">
+
+            <div class="row">
+                <div class="col l12">
+                    <div class="">
+                        <h1 style="font-family: geomanist-thin">Hello World</h1>
+                        <h6>My name is John. I am a fullstack web developer.</h6>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <button id="nav-brand" class="nav-item">jr.web</button>
-    <button id="nav-icon" class="nav-item" data-state="closed">MENU</button>
+    <div class="section-scrollify" data-section-name="about"
+        style="background: #06070E; color: #FCFCFC; text-align: left; position: relative; z-index: 100">
 
-
-    <div class="example-classname" id="section-home" data-section-name="home">
-        <div class="container-fluid">
+        <div class="container" style="padding-top: 20%">
             <div class="row">
-                <div class="col 12" style="text-align: center; padding: 0;">
-                    <div id="splash">
-                        <h1 style="color: #1B7397">Hello World</h1>
-                        <h6 style="color: #001021">Cheers to a sunny day in the city.</h6>
-                        <button id="scroll-down" style="margin-top: 4em">
-                            <a class="btn-floating pulse" style="background: #1B7397"><i class="material-icons"
-                                    style="color: #0D1B2A; font-size: 2.5em">keyboard_arrow_down </i></a>
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="example-classname section-content" id="section-about" data-section-name="about"
-        style="text-align: left; background: #0D1B2A; color: white">
-        <div class="container-fluid" id="about-splash">
-            <div class="row">
-                <div class="col l2"></div>
-                <div class="col l5" style="color: #30BCED">
-                    <h1 style="color: white">Mucho Gusto</h1>
-                    <h6 style="color: #BCED09">My name is John. I'm a fullstack web developer.</h6>
-                    <p>I create engaging websites and web applications. 3 years of experience with Wordpress,
-                        hand-crafted HTML5, CSS3, ES6, and jQuery.</p>
-
-                    <p>I also am familiar with MySQL, MongoDB, Express, Node, and Ruby on Rails.</p>
+                <div class="col l12">
+                    <h1>I'm John</h1>
+                    <h6 style="color: #ff5817">I create engaging web experiences.</h6>
                     <br>
+                    <p>Since 2017, I have been rediscovering the bliss</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <a class="waves-effect waves-light btn" id="portfolio-explore">
-                        See My Experience
+    <div class="section-scrollify" data-section-name="portfolio" style="background: #06070E; color: #FCFCFC">
+
+        <div class="container" style="padding-top: 20%">
+            <div class="row">
+                <div class="col l12">
+                    <h1>Projects</h1>
+                    <h6>Production Sites, web apps, toy apps, and work-in-progress.</h6>
+                    <a>
+
+                        <div id="button-explore-container" class="layer-3">
+                            <button id="button-explore">EXPLORE</button>
+                        </div>
+
                     </a>
-
-
                 </div>
-                <div class="col l5"></div>
             </div>
         </div>
     </div>
 
-    <div class="example-classname section-content" id="section-portfolio" data-section-name="portfolio">
-        <div class="container-fluid" id="splash-portfolio">
+    <div class="section-scrollify" data-section-name="musings"
+        style="background: #FCFCFC; color: #06070E; text-align: right; position: relative; z-index: 100">
+
+        <div class="container" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
-                    <h1>Select Works</h1>
-                    <h6>production sites, toy apps, and projects in-the-making</h6>
-                    <br>
-                    <button id="click" class="waves-effect waves-light btn">Explore My Work</button>
-                    <div id="portfolio-list"></div>
-
+                    <h1>Musings</h1>
+                    <h6>Thoughts on development, design, UI, and UX.</h6>
+                    <button>READ MORE</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="section-scrollify" data-section-name="contact"
+        style="background: #FF4800; color: #FCFCFC; font-family: geomanist-thin">
 
-
-    <div class="example-classname section-content" id="section-musings" data-section-name="musings"
-        style="background: #1E2032">
-        <div class="container-fluid">
+        <div class="container" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
-                    <h1>musings</h1>
-                    <h6>my latest on design, development, life, and learning.</h6>
+                    <h1>Connect</h1>
+                    <h6>Let's chat via Slack, email, or social media.</h6>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="example-classname section-content" id="section-contact" data-section-name="contact"
-        style="background: #1E2032">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col l12">
-                    <h1>chat with me</h1>
-                    <h5>tiktaalikdesign@gmail.com</h5>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="footer" data-section-name="footer">
+        <br>
+        <br>
+        <div>Footy for the bois.</div>
+        <br>
     </div>
 
-    <footer class="nav-item"
-        style="position: fixed; z-index: 3; bottom: 0em; right: 0; font-size: 2em; margin: 0 2em 1em 0">
-        <i class="fab fa-github"></i>
-        <i class="fab fa-linkedin-in"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-    </footer>
+    <div id="particles-js" style="z-index: 0; height: 100vh; position: fixed; top: 0; width: 100%"></div>
 
-    <footer style="position: fixed; z-index: 3; bottom: 0em; left: 0; font-size: 2em; margin: 0 0em 1em 2em">
-        <div class="nav-item" id="nav-bottom-left" style="font-size: .6em;">tiktaalik.design@gmail.com</div>
-    </footer>
+    <!-- Begin Cursors -->
+    <div class="your-cursor2"></div>
+    <div class="follow2"></div>
+    <!-- End Cursors -->
 
-<!---CURSORS--->
-<div class="your-cursor2"></div>
-<div class="follow2"></div>
-
-    <!-- additional js  -->
+    <!-- materialize css library for grid and components -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script src="assets/js/jquery.awesome-cursor.min.js"></script>
+    <!-- TweenMax to power the custom cursor (also to try out the animation library vs animejs) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <!-- Script to power the cursor -->
     <script src="assets/js/addthisshit2.js"></script>
+
+    <!-- Main script for site -->
     <script src="assets/js/main.js"></script>
-<script>
-$(document)
-.mousemove(function(e) {
-$('.your-cursor4')
-.eq(0)
-.css({
-left: e.pageX,
-top: e.pageY
-});
-});
-$(document).on("mousemove", function(e) {
-mouseX = e.pageX;
-mouseY = e.pageY;
-});
-</script>
+    <script>
+        // REPLACE CURSOR WITH ANIME.JS VERSION LATER - USE THIS: https://codepen.io/tguelcan-the-sasster/full/ROoxWm
+        $(document)
+            .mousemove(function (e) {
+                $('.your-cursor2')
+                    .eq(0)
+                    .css({
+                        left: e.pageX,
+                        top: e.pageY
+                    });
+            });
+        $(document).on("mousemove", function (e) {
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+        });
+
+    </script>
+
 </body>
 
 </html>

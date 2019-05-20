@@ -1,285 +1,329 @@
-/* ========== BEGIN @fontface ========== */
+/* ===== BEGIN STYLE NOTES ========================================== //
+
+    z-index is used for the layered cursor interaction.
+
+    0 = content/body
+    1000 = nav menu opened
+    2000 = cursor follow/spotlight (anything above can be shadowed)
+    3000 = text in relief against spotlight and fixed menu 
+    4000 = cursor 
+
+// ===== END STYLE NOTES ============================================ */
+
+/* ===== BEGIN @fontface ============================================ */
+
+/* Font Lite */
 
 @font-face {
-    font-family: geomanist-light;
+    font-family: geomanist-lite;
     src: url('../font/geomanist-light-webfont.woff');
-    /* font-weight:400; */
 }
+
+/* Font Thin */
 
 @font-face {
     font-family: geomanist-thin;
     src: url('../font/geomanist-thin-webfont.woff');
-    /* font-weight:400; */
 }
+
+/* Font Regular */
 
 @font-face {
     font-family: geomanist-regular;
     src: url('../font/geomanist-regular-webfont.woff');
-    /* font-weight:400; */
 }
+
+/* Font Ultra */
 
 @font-face {
     font-family: geomanist-ultra;
     src: url('../font/geomanist-ultra-webfont.woff');
-    /* font-weight:400; */
 }
 
-/* ========== END @fontface ========== */
+/* ===== END @fontface ============================================== */
 
-/* .cursor {
-    cursor: url(images/my-cursor-design.png), auto;
-} */
+/* ===== BEGIN GLOBAL =============================================== */
+
+/* Remove the default cursor */
+
+* {
+    cursor: none !important;
+}
+
+/* Set HTML background in case of overflow/bounce on scroll */
 
 html {
-    background: #D3D0CB;
-}
-
-/* .btn, button, a {
-    cursor: url(https://img.icons8.com/small/16/000000/filled-circle.png), auto;
+    background: #FCFCFC;
+    color: #061826;
 }
 
 body {
-    cursor: url(https://img.icons8.com/small/16/000000/filled-circle.png), auto;
-} */
-
-body {
-    font-family: geomanist-light, Helvetica, Arial, sans-serif;
-    background: #303036;
-    color: rgb(159, 171, 194);
+    font-family: geomanist-regular, Helvetica, Arial, sans-serif;
     font-size: 1em;
-    /* font-family: 'Poppins', sans-serif; */
+    letter-spacing: .115em;
     text-align: center;
-    letter-spacing: .05em;
-}
-
-button {
-    letter-spacing: .15em;
-}
-
-a {
-    color: #E1E4E9;
 }
 
 h1 {
-    color: #1E2032;
-    /* color: black; */
-    font-size: 4.75em;
-    font-family: geomanist-thin;
+    font-size: 10em;
+    font-family: geomanist-regular;
 }
 
 h6 {
-    color: #1E2032;
-    font-size: 1.25em;
-    /* font-family: geomanist-regular; */
-}
-
-#test {
-    background: 1E2032;
-    text-align: center;
-    /* color: white; */
-}
-
-.example-classname {
-    height: 100vh;
-}
-
-/* custom nav - do no use materialize nav classes */
-
-#nav-container {
-    padding-top: 10%;
-    transition: 2s;
-    opacity: 0;
-}
-
-#nav-main {
-    background: #090909;
-    color: #E1E4E9;
-    text-align: center;
-    height: 0;
-    /* opacity: 0.95; */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-    transition-timing-function: ease-out;
-    transition-duration: 0.20s;
-}
-
-#nav-brand {
     font-size: 1.15em;
-    border: none;
-    top: 0;
-    left: 1em;
-    padding: .5em 0em .5em 0em;
-    transition-duration: .5s;
-    transition-delay: 0.2s;
+    font-family: geomanist-regular;
 }
 
-#nav-icon {
-    background: none;
-    border: none;
-    top: 0;
-    right: 1em;
-    padding: .5em 0em .5em 0em;
-    transition-duration: .5s;
-    transition-delay: 0.05s;
-}
-
-.nav-item {
-    color: WHITE;
-    transition: 0.5s;
-    font-size: 1em;
-    z-index: 20002;
-    position: fixed;
-    text-align: center;
-    background: none;
-    margin: 2em;
-}
-
-#nav-bottom-left {
-    bottom: 0;
-    left: 0;
-}
-
-.nav-item:hover {
-    color: #BCED09;
+a {
+    /* Overrding the default initially */
+    color: #FCFCFC;
 }
 
 i {
-    font-size: .8em;
+    font-size: 1.75em;
+    margin: 0 0 0 0.5em;
 }
 
 i:hover {
-    color: #BCED09;
+    /* color: #FCBA04; */
 }
 
-.menu-item {
-    font-size: 2em;
-    font-family: geomanist-light;
-    color: #E1E4E9;
+a:hover {
+    /* color: #FCFCFC; */
 }
 
-.menu-number {
-    margin: 1em 1em 0 0;
-    font-size: 1em;
-    opacity: 0;
-    transition: 1s;
-    color: #FD8B55;
-}
-
-.menu-row {
-    transition: .3s;
-    margin-bottom: 0em;
-    transition-timing-function: ease-in-out;
-    opacity: 0.6;
-}
-
-.menu-row:hover {
-    opacity: 1;
-    /* margin-left: 2.55em; */
-}
-
-#splash {
-    opacity: 0;
-    padding: 2em 0 0 0;
-    position: absolute;
-    top: 38%;
-    width: 100%;
-    /* z-index: -1; */
-    transition-delay: 2s;
-    transition: .6s;
-    transition-timing-function: ease-in-out;
-    /* color: #F55E4D; */
-}
-
-.section-content {
-    padding: 20% 0 0 0;
-    height: 60vh;
-}
-
-#scroll-down {
-    background: none;
+button {
+    transition: 0.4s;
+    letter-spacing: inherit;
     border: none;
-    transition: 0.5s;
-    opacity: 0.2;
-    /* width: 2em; */
-    padding-top: .2em;
-    /* height: 2em;
-    border-radius: 3em;
-    background: #2D384E;
-    color: white; */
+    background: none;
+    padding: 2em;
+    color: #1E2019;
 }
 
-#scroll-down:hover {
+button:hover {
+    color: #FCFCFC;
+}
+
+button:focus {
+    background: none;
+}
+
+/* ===== END GLOBAL ================================================= */
+
+/* ===== BEGIN HELPER CLASSES ======================================= */
+
+/* background and content */
+
+.layer-0 {
+    z-index: 0;
+    position: relative;
+}
+
+/* nav menu */
+
+.layer-1 {
+    z-index: 1000;
+    position: relative;
+}
+
+/* cursor shadow */
+
+.layer-2 {
+    z-index: 2000;
+    position: relative;
+}
+
+/* content between cursor and shadow */
+
+.layer-3 {
+    z-index: 3000;
+    position: relative;
+}
+
+/* cursor */
+
+.layer-4 {
+    z-index: 4000;
+}
+
+/* ===== END HELPER CLASSES ========================================= */
+
+/* ===== BEGIN NAV TOGGLE AND MODAL ================================= */
+
+.nav-fixed {
+    position: fixed;
+    padding: 1em;
+    z-index: 3000;
+    transition: .33s;
+    /* transition-timing-function: ease-out; */
+    opacity: 0.8;
+}
+
+.nav-fixed:hover {
+    padding: 4.66em;
     opacity: 1;
 }
 
-#about-splash {
-    opacity: 0;
-    transition: 0.3s;
-    margin-top: 2em;
-    transition-timing-function: ease-in;
+.nav-tl {
+    left: 0;
+    top: 0;
 }
 
-#portfolio-overlay {
-    position: fixed;
-    z-index: 1000000;
-    width: 100%;
+.nav-tr {
+    right: 0;
+    top: 0;
+}
+
+.nav-bl {
+    left: 0;
+    bottom: 0;
+}
+
+.nav-br {
+    right: 0;
+    bottom: 0;
+}
+
+#nav-block {
+transition: 0.2s;
+transition-timing-function: ease-in;
+z-index: 200;
+}
+
+#nav-main {
+    background: #06070E;
+    color: #DCE1DE;
     height: 100vh;
-    /* overflow: scroll; */
-    display: none;
-    opacity: 0;
-    /* bottom: -100vh; */
-    background: #1B7397;
+    width: 100%;
+    position: fixed;
+    top: -100vh;
+    z-index: 1000;
+    transition: .28s;
     transition-timing-function: ease;
-    transition-duration: 0.2s;
-    transition-delay: 0.5s;
+    opacity: 1;
+    transition-delay: 0.32s;
 }
 
-*{
-    cursor: none;
+.nav-link {
+    border-right: 5px solid #000F08;
+    color: #DCE1DE;
+    margin-top: 0.25em;
+    transition: 0.44s;
+    transition-timing-function: ease;
+    padding: 0 1em 0 0;
 }
 
-/*--Example 2--*/
+.nav-link:hover {
+    border-right: 2px solid #2BC016;
+    color: #5941A9;
+    padding: 0 2em 0 0;
+}
+
+#button-explore-container {
+    padding: 1em;
+    width: 20em;
+    margin: auto;
+}
+
+#button-explore {
+    background: none;
+    transition: 0.33s;
+    margin: 1em;
+    padding: 2em;
+    color: #FCFCFC;
+}
+
+#button-explore:hover {
+    background: rgba(216, 219, 226, 0.0);
+    margin: 2em;
+    padding: 1em;
+    color: #06070E;
+}
+
+.footer {
+    position: relative;
+    background: #000F08;
+    color: #FCFCFC;
+    height: 8em;
+    z-index: 2;
+}
+
+/* ===== END NAV TOGGLE AND MODAL =================================== */
+
+/* ===== BEGIN CIRCLE CURSOR ======================================== */
+
+/* REPLACE CURSOR WITH ANIME.JS VERSION LATER - USE THIS: https://codepen.io/tguelcan-the-sasster/full/ROoxWm */
+
 .your-cursor2 {
-	position: absolute;
-	background-color: aqua;
-	width: 7px;
-	height: 7px;
-	border-radius: 100%;
-	z-index: 1;
-	transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
-	user-select: none;
-	pointer-events: none;
-	z-index: 10000;
-	transform: scale(1);
+    position: absolute;
+    background-color: #000F08;
+    /* cursor size (circle) */
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    z-index: 2;
+    /* transition: cubic-bezier(0.075, 0.82, 0.165, 1.2); */
+    transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    z-index: 4000;
+    transform: scale(1);
+    opacity: 1;
 }
+
 .your-cursor2.active {
-	opacity: 0.5;
-	transform: scale(0);
+    opacity: 0.5;
+    transform: scale(0);
 }
+
 .your-cursor2.hovered {
-	opacity: 0.08;
+    opacity: 0.08;
 }
 
 .follow2 {
-	position: absolute;
-	background-color: rgba(255, 255, 255, 0.3);
-	width: 20px;
-	height: 20px;
-	border-radius: 100%;
-	z-index: 1;
-	transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
-	user-select: none;
-	pointer-events: none;
-	z-index: 10000;
-	transform: translate(5px, 5px);
-}
-.follow2.active {
-	opacity: 0.7;
-	transform: scale(3);
-}
-.follow2.hovered {
-	opacity: 0.08;
+    position: absolute;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    background: #5941A9;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    z-index: 2000;
+    transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    transform: translate(8px, 8px);
+    opacity: 0.1;
 }
 
+.follow2.active {
+    opacity: 0.96;
+    transform: scale(4.5);
+    /* background: #B2E135; */
+    border-radius: 100%;
+}
+
+.follow2.hovered {
+    opacity: 0.08;
+}
+
+/* ===== END CIRCLE CURSOR ========================================== */
+
+/* testing style */
+
+.test-dark {
+    color: #DCE1DE;
+    background: #131515;
+    /* border: 1px solid grey; */
+    opacity: 0.75;
+}
+
+.test-light {
+    /* background: lightgray; */
+    /* border: 1px solid grey; */
+    /* opacity: 0.75; */
+}
+
+#one {
+    transition: s;
+}

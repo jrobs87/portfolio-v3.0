@@ -15,8 +15,8 @@ TweenMax.to({}, 0.016, {
 
 		TweenMax.set(follower, {
 			css: {    
-				left: posX - 12,
-				top: posY - 12
+				left: posX - 12, // default: 12
+				top: posY - 12 // default: 12
 			}
 		});
 
