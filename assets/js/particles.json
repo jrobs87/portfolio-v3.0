@@ -88,7 +88,7 @@
       },
       "bubble": {
         "distance": 200, 
-        "size": 2,
+        "size": 0,
         "duration": 3,
         "opacity": 0,
         "speed": 5
