@@ -44,20 +44,20 @@
                 name: 'Home',
                 font: '',
                 cursor: '',
-                cursorFollow: '#ED1C24',
+                cursorFollow: '#17BEBB',
                 accentOne: '',
-                navBlock: '#2F3061',
+                navBlock: '#33A1FD',
                 navIcon: '#06070E',
-                particles: '#ED1C24'
+                particles: '#17BEBB'
             },
             {
                 index: 1,
                 name: 'About',
                 font: '',
-                cursor: '#F2DC5D',
-                cursorFollow: '#F2DC5D',
+                cursor: 'white',
+                cursorFollow: '#F17300',
                 accentOne: '',
-                navBlock: '#FF4800',
+                navBlock: '#FDCA40',
                 navIcon: '#FCFCFC',
                 particles: '#FCFCFC'
             },
@@ -66,10 +66,10 @@
                 name: 'Projects',
                 font: '#06070E',
                 cursor: '#06070E',
-                cursorFollow: '#06070E',
+                cursorFollow: '#FCFCFC',
                 accentOne: '',
                 navBlock: '#ff5817',
-                navIcon: '#FCFCFC',
+                navIcon: '#06070E',
                 particles: '#FCFCFC'
             },
             {
@@ -90,7 +90,7 @@
                 cursor: '#06070E',
                 cursorFollow: '#06070E',
                 accentOne: '',
-                navBlock: '#30BCED',
+                navBlock: '#054A91',
                 navIcon: '#FCFCFC',
                 particles: '#DCE1DE'
             },
@@ -155,7 +155,7 @@
                         pJSDom[0].pJS.particles.array[i].color.rgb = hexToRgb(newColor);
 
                     });
-                }, 500)
+                }, 10)
 
             },
             after: function () {
@@ -238,15 +238,15 @@
         </div>
     </div>
 
-    <div class="section-scrollify" id="one" data-section-name="home" style="background: #FCFCFC; color: #06070E">
+    <div class="section-scrollify" id="one" data-section-name="home" style="background: #FCFCFC; color: #06070E; text-align: left">
         <div class="container" style="padding-top: 18em">
 
             <div class="row">
                 <div class="col l12">
                     <div class="">
-                        <h1><span id="hello" style="color: black">Hello</span> World</h1>
-                        <h6>My name is John. I am a fullstack web developer.</h6>
-                        <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Mas</button>
+                        <h1><span id="hello" style="color: black">Hello</span> Atlanta</h1>
+                        <h6>My name is John. I create engaging web experiences.</h6>
+                        <a class="layer-3"><button id="btn-scroll" >SCROLL</button></a>
                     </div>
                 </div>
             </div>
@@ -260,17 +260,17 @@
             <div class="row">
                 <div class="col l12">
                     <h1>I'm John</h1>
-                    <h6 style="color: #F2DC5D">I create engaging web experiences.</h6>
-                    <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Mas</button>
-                    <p>Since 2017, I have been rediscovering the bliss</p>
+                    <h6 style="color: #E71D36">I am a fullstack web developer.</h6>
+                    
+                    <p>Since 2017, I have been rediscovering the bliss of design.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="section-scrollify" data-section-name="portfolio" style="background: #1C77C3; color: #FCFCFC">
+    <div class="section-scrollify" data-section-name="portfolio" style="background: #FDCA40; color: #06070E">
 
-        <div class="container" style="padding-top: 20%">
+        <div class="container layer-2" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
                     <h1>Projects</h1>
@@ -285,12 +285,45 @@
                 </div>
             </div>
         </div>
+
+        <div class="container layer-3" id="portfolio-list" style="text-align: left;">
+           
+<div class="row">
+        <div class="col l4">
+                <ul class="collapsible" style="background: none; border: none; box-shadow: none">
+                        <li>
+                          <div class="collapsible-header" style="background: none; border: none"><i class="material-icons">filter_drama</i>Web Apps</div>
+                          <div class="collapsible-body">
+                              <ul>
+                                    <li>
+                                            <a><button>FriendFinder</button></a>
+                                        </li>
+                                  <li>
+                                      <a><button>Shrug</button></a>
+                                  </li>
+                              </ul>
+                          </div>
+                          
+                        </li>
+                        <li>
+                          <div class="collapsible-header"><i class="material-icons">place</i>Live Sites</div>
+                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                        <li>
+                          <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                        </li>
+                      </ul>
+                                 
+        </div>
+            </div>
+        </div>
     </div>
 
     <div class="section-scrollify" data-section-name="musings"
         style="background: #FCFCFC; color: #06070E; text-align: right; position: relative; z-index: 100">
 
-        <div class="container" style="padding-top: 20%">
+        <div class="container" id="portfolio-splash" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
                     <h1>Musings</h1>
@@ -299,17 +332,21 @@
                 </div>
             </div>
         </div>
+
+
+
     </div>
 
     <div class="section-scrollify" data-section-name="contact"
-        style="background: #FF4800; color: #FCFCFC; font-family: geomanist-thin">
+        style="background: #F17300; color: #FCFCFC; font-family: geomanist-thin">
 
         <div class="container" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
-                    <h1>Get in Touch</h1>
+                    <h1>Connect With Me</h1>
                     <h6>Let's chat via Slack, email, or social media.</h6>
-                    <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Mas</button>
+                    <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Slack</button>
+                    <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Email</button>
                 </div>
             </div>
         </div>

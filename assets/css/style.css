@@ -58,20 +58,28 @@ html {
 }
 
 body {
-    font-family: geomanist-regular, Helvetica, Arial, sans-serif;
+    font-family: geomanist-lite, Helvetica, Arial, sans-serif;
     font-size: 1em;
     letter-spacing: .115em;
     text-align: center;
 }
 
+p {
+    font-size: 2em;
+}
+
 h1 {
-    font-size: 6em;
-    font-family: geomanist-thin;
+    font-size: 5em;
+    font-family: geomanist-lite;
 }
 
 h6 {
-    font-size: 1.35em;
+    font-size: 1.5em;
     font-family: geomanist-lite;
+}
+
+p {
+    font-size: 1.25em;
 }
 
 a {
@@ -98,6 +106,8 @@ button {
     border: none;
     background: none;
     padding: 2em;
+    /* border-radius: .3em; */
+    color: #061826;
 }
 
 button:hover {
@@ -152,6 +162,7 @@ button:focus {
 
 .nav-fixed {
     position: fixed;
+    font-size: 0.9em;
     padding: 1em;
     z-index: 3000;
     transition: .33s;
@@ -188,7 +199,7 @@ button:focus {
 transition: 0.2s;
 transition-timing-function: ease-in;
 z-index: 200;
-background: #F2DC5D;
+background: #00A6FB;
 }
 
 #nav-main {
@@ -215,8 +226,8 @@ background: #F2DC5D;
 }
 
 .nav-link:hover {
-    border-right: 2px solid #ED1C24;
-    color: #F2DC5D;
+    border-right: 2px solid #2176FF;
+    color: #F17300;
     padding: 0 2em 0 0;
 }
 
@@ -261,7 +272,7 @@ background: #F2DC5D;
     /* cursor size (circle) */
     width: 12px;
     height: 12px;
-    /* border-radius: 100%; */
+    border-radius: 100%;
     z-index: 2;
     /* transition: cubic-bezier(0.075, 0.82, 0.165, 1.2); */
     transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
@@ -284,10 +295,10 @@ background: #F2DC5D;
 .follow2 {
     position: absolute;
     /* background-color: rgba(255, 255, 255, 0.1); */
-    background: #ED1C24;
+    background: #17BEBB;
     width: 20px;
     height: 20px;
-    /* border-radius: 100%; */
+    border-radius: 100%;
     z-index: 2000;
     transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
     user-select: none;
@@ -298,7 +309,9 @@ background: #F2DC5D;
 
 .follow2.active {
     opacity: 0.96;
-    transform: scale(4.5);
+    /* width: 60px;
+    height: 60px; */
+    transform: scale(3);
     /* background: #B2E135; */
     /* border-radius: 100%; */
 }
@@ -325,5 +338,20 @@ background: #F2DC5D;
 }
 
 #one {
-    transition: s;
+    /* transition: s; */
+}
+
+#btn-scroll {
+    /* style="border: 2px solid black; color: black; padding: .5em 1em .5em 1em; margin-top: 2em; width: 8em" */
+    border: 2px solid black;
+    padding: .5em 1em .5em 1em;
+    margin-top: 2em; 
+    width: 8em;
+    transition-delay: .1s;
+    transition-duration: 0.65s;
+}
+
+#btn-scroll:hover {
+    
+    color: black;
 }

@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     // Reset the cursoe to current sectin defaults
     cursorReset = function (cursor, follow) {
-      $('.your-cursor2').css('background', '#000F08');
+      $('.your-cursor2').css('background', '#00A6FB');
       $('.follow2').css('background', '#5941A9');
     }
 
@@ -34,7 +34,6 @@ $(document).ready(function () {
 
       // $('.your-cursor2').css('background', '#2BC016'); // Set current section cursor for nav modal
       // $('.follow2').css('background', '#2BC016'); // Set current section cursor follow  for nav modal
-
 
       $('#nav-block').css('top', 0); // moves nav into view 
       navMain.css('top', '0'); // moves nav into view 
@@ -58,7 +57,6 @@ $(document).ready(function () {
       setTimeout(function () {
         // cursorReset();  // reset to section defaults for cursor
       }, 500)
-
     }
 
     setState(toggle, state); // pass state into element (nav-toggle) data-state attribute
@@ -87,7 +85,7 @@ $(document).ready(function () {
 // },3000);
 
 // Nav 
-
+$('.collapsible').collapsible();
 
 
 /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
