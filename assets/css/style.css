@@ -69,17 +69,17 @@ p {
 }
 
 h1 {
-    font-size: 5em;
-    font-family: geomanist-lite;
+    font-size: 4em;
+    font-family: geomanist-thin;
 }
 
 h6 {
-    font-size: 1.5em;
+    font-size: 1.33em;
     font-family: geomanist-lite;
 }
 
 p {
-    font-size: 1.25em;
+    font-size: 1.33em;
 }
 
 a {
@@ -108,11 +108,14 @@ button {
     padding: 2em;
     /* border-radius: .3em; */
     color: #061826;
+    visibility: hidden;
+    opacity: 0;
+   
 }
 
-button:hover {
+/* button:hover {
     color: #FCFCFC;
-}
+} */
 
 button:focus {
     background: none;
@@ -199,7 +202,7 @@ button:focus {
 transition: 0.2s;
 transition-timing-function: ease-in;
 z-index: 200;
-background: #00A6FB;
+background: #1D3461;
 }
 
 #nav-main {
@@ -295,7 +298,7 @@ background: #00A6FB;
 .follow2 {
     position: absolute;
     /* background-color: rgba(255, 255, 255, 0.1); */
-    background: #17BEBB;
+    background: #FB3640;
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -311,7 +314,7 @@ background: #00A6FB;
     opacity: 0.96;
     /* width: 60px;
     height: 60px; */
-    transform: scale(3);
+    transform: scale(4);
     /* background: #B2E135; */
     /* border-radius: 100%; */
 }
@@ -343,15 +346,33 @@ background: #00A6FB;
 
 #btn-scroll {
     /* style="border: 2px solid black; color: black; padding: .5em 1em .5em 1em; margin-top: 2em; width: 8em" */
-    border: 2px solid black;
+    border: 1px solid black;
     padding: .5em 1em .5em 1em;
     margin-top: 2em; 
-    width: 8em;
-    transition-delay: .1s;
-    transition-duration: 0.65s;
+    /* border-radius: 3em; */
+    width: 6em;
+    /* transition-delay: .1s; */
+    transition-duration: 0.35s;
 }
 
 #btn-scroll:hover {
-    
-    color: black;
+    border: 1px solid #FCFCFC;
+    color: #FCFCFC;
+}
+
+#splash {
+    visibility: hidden;
+    opacity: 0;
+    /* transition-delay: 0.33s; */
+    transition-duration: 1s;
+}
+
+#start {
+    opacity: 0;
+    transition-delay: .63s;
+    transition-duration: .33s;
+    transition-timing-function: ease;
+    margin-top: 3em;
+    font-family: 'geomanist-thin';
+    font-size: 1.75em;
 }

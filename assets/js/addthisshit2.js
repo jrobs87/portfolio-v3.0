@@ -7,7 +7,7 @@ var posX = 0,
 var mouseX = 0,
 	mouseY = 0;
 
-TweenMax.to({}, 0.016, {
+TweenMax.to({}, 0.001, {
 	repeat: -1,
 	onRepeat: function() {
 		posX += (mouseX - posX) / 9;

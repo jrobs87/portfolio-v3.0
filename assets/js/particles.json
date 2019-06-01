@@ -1,14 +1,14 @@
 {
   "particles": {
     "number": {
-      "value": 1,
+      "value": 0,
       "density": {
         "enable": false,
-        "value_area": 800
+        "value_area": 200
       }
     },
     "color": {
-      "value": "#17BEBB"
+      "value": "#FB3640"
     },
     "shape": {
       "type": "circle",
@@ -26,39 +26,39 @@
       }
     },
     "opacity": {
-      "value": 0.56,
+      "value": 0.2,
       "random": false,
       "anim": {
         "enable": false,
-        "speed": 2,
+        "speed": 1,
         "opacity_min": 0,
         "sync": false
       }
     },
     "size": {
-      "value": 30,
+      "value": 9,
       "random": false,
       "anim": {
         "enable": false,
         "speed": 3,
-        "size_min": 0.1,
+        "size_min": 2,
         "sync": false
       }
     },
     "line_linked": {
       "enable": false,
       "distance": 200,
-      "color": "#00A6FB",
-      "opacity": 0.46,
-      "width": 2
+      "color": "#FB3640",
+      "opacity": 0.3,
+      "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 1.85,
+      "speed": 1.88,
       "direction": "none",
       "random": true,
       "straight": false,
-      "out_mode": "out",
+      "out_mode": "bounce",
       "attract": {
         "enable": false,
         "rotateX": 600,
@@ -71,7 +71,7 @@
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "bubble"
+        "mode": "grab"
       },
       "onclick": {
         "enable": true,
@@ -81,26 +81,26 @@
     },
     "modes": {
       "grab": {
-        "distance": 200,
+        "distance": 400,
         "line_linked": {
-          "opacity": 1
+          "opacity": 0.166
         }
       },
       "bubble": {
-        "distance": 300, 
-        "size": 0,
-        "duration": 10,
+        "distance": 2000, 
+        "size": 100,
+        "duration": 5.2,
         "opacity": 0,
-        "speed": 3
+        "speed": 600
       },
       "repulse": {
-        "distance": 100
+        "distance": 400
       },
       "push": {
-        "particles_nb": 1
+        "particles_nb": 16
       },
       "remove": {
-        "particles_nb": 2
+        "particles_nb": 100
       }
     }
   },
