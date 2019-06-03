@@ -107,7 +107,7 @@ button {
     background: none;
     padding: 2em;
     /* border-radius: .3em; */
-    color: #061826;
+    /* color: #061826; */
     visibility: hidden;
     opacity: 0;
    
@@ -199,38 +199,41 @@ button:focus {
 }
 
 #nav-block {
-transition: 0.2s;
+transition-duration: 0.3s;
 transition-timing-function: ease-in;
 z-index: 200;
-background: #1D3461;
+background: #4d6cfa;
+z-index: 1996;
 }
 
 #nav-main {
+    opacity: 0;
     background: #06070E;
     color: #DCE1DE;
     height: 100vh;
     width: 100%;
     position: fixed;
     top: -100vh;
-    z-index: 1000;
-    transition: .28s;
+    z-index: 1999;
+    transition-duration: .66s;
     transition-timing-function: ease;
-    opacity: 1;
-    transition-delay: 0.32s;
+    transition-delay: 0.33s;
 }
 
 .nav-link {
     border-right: 5px solid #06070E;
-    color: #DCE1DE;
+    color: #4d6cfa;
     margin-top: 0.25em;
     transition: 0.44s;
     transition-timing-function: ease;
     padding: 0 1em 0 0;
+    font-family: 'geomanist-lite';
+    font-size: 1.33em;
 }
 
 .nav-link:hover {
-    border-right: 2px solid #2176FF;
-    color: #F17300;
+    border-right: 2px solid white;
+    color: white;
     padding: 0 2em 0 0;
 }
 
@@ -271,10 +274,10 @@ background: #1D3461;
 
 .your-cursor2 {
     position: absolute;
-    background-color: #000F08;
+    background-color: #FB3640;
     /* cursor size (circle) */
-    width: 12px;
-    height: 12px;
+    width: 6px;
+    height: 6px;
     border-radius: 100%;
     z-index: 2;
     /* transition: cubic-bezier(0.075, 0.82, 0.165, 1.2); */
@@ -299,11 +302,11 @@ background: #1D3461;
     position: absolute;
     /* background-color: rgba(255, 255, 255, 0.1); */
     background: #FB3640;
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
     border-radius: 100%;
     z-index: 2000;
-    transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+    transition: 0.4s cubic-bezier(0.75, -1.27, 0.3, 1.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 0.33) opacity;
     user-select: none;
     pointer-events: none;
     transform: translate(8px, 8px);
@@ -346,33 +349,73 @@ background: #1D3461;
 
 #btn-scroll {
     /* style="border: 2px solid black; color: black; padding: .5em 1em .5em 1em; margin-top: 2em; width: 8em" */
-    border: 1px solid black;
+    border: 1px solid #06070E;
+    /* background: black; */
+    color: black;
+    padding: .5em 1em .5em 1em;
+    margin-top: 3em; 
+    border-radius: 3em;
+    width: 6em;
+    /* transition-delay: .1s; */
+    transition-duration: 0.35s;
+    transition-timing-function: ease;
+}
+
+#btn-scroll-1 {
+    /* style="border: 2px solid black; color: black; padding: .5em 1em .5em 1em; margin-top: 2em; width: 8em" */
+    border: 1px solid white;
+    color: white !important;
     padding: .5em 1em .5em 1em;
     margin-top: 2em; 
-    /* border-radius: 3em; */
+    border-radius: 3em;
     width: 6em;
     /* transition-delay: .1s; */
     transition-duration: 0.35s;
 }
 
-#btn-scroll:hover {
-    border: 1px solid #FCFCFC;
-    color: #FCFCFC;
+#btn-scroll-1:hover {
+    color: #FB3640 !important;
+    background: white;
+    border: 1px solid white;
 }
 
 #splash {
+    position: relative;
     visibility: hidden;
     opacity: 0;
-    /* transition-delay: 0.33s; */
-    transition-duration: 1s;
+    transition-delay: 0.23s;
+    transition-duration: .66s;
+    top: 12em;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #start {
+    position: relative;
     opacity: 0;
     transition-delay: .63s;
     transition-duration: .33s;
     transition-timing-function: ease;
-    margin-top: 3em;
-    font-family: 'geomanist-thin';
-    font-size: 1.75em;
+    font-family: 'geomanist-lite';
+    font-size: 1.25em;
+    top: 11em;
+    text-align: center;
+    /* padding-top: 4em; */
+}
+
+.hamburger-inner, .hamburger-inner:before, .hamburger-inner:after {
+margin: 0;
+background: black;
+}
+
+.active-hb, .active-hb:before, .active-hb:after {
+    background: white;
+}
+
+.nav-link-container {
+    position: relative;
+    transition-duration: .99s;
+    transition-delay: .33s;
+    opacity: 0;
+    top: -10em;
+    /* background: white; */
 }

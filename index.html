@@ -23,16 +23,17 @@
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <!-- easing library -->
     <script src="assets/js/easing.js"></script>
+    
+    
+    <!-- imperative to load scrollify before content -->
+    <script src="Scrollify/jquery.scrollify.js"></script>
     <!-- particles js -->
     <script src="assets/js/particles.js"></script>
-    <!-- imperative to load scrollify before content -->
-    <!-- <script src="Scrollify/jquery.scrollify.js"></script> -->
-    <!-- scrollify initialization script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.19/jquery.scrollify.js"></script>
     <script>
 
         // intiliaze the scrollify library
         $(function () {
+            
             $.scrollify({
                 section: ".section-scrollify",
             });
@@ -44,7 +45,7 @@
             sectionName: "section-name",
             interstitialSection: ".footer",
             easing: "easeOutExpo",
-            scrollSpeed: 1100,
+            scrollSpeed: 1000,
             offset: 0,
             scrollbars: false,
             standardScrollElements: "",
@@ -68,16 +69,13 @@
                 $('.your-cursor2').css('background', sections[sectionCurrent].cursor);
 
                 // nav menu 
-
                 // update the nav block reveal color
                 $('#nav-block').css('background', sections[sectionCurrent].navBlock);
-
-                console.log('yo ' + sections[sectionCurrent].navBlock);
+                $('.nav-link').css('color', sections[sectionCurrent].navBlock);
 
                 $('button').css('color', sections[sectionCurrent].navIcon);
-                console.log(sections[sectionCurrent].navIcon);
+                
                 // pJSDom[0].pJS.fn.particlesRefresh() // resets entire particles canvas
-
                 // adjust particles properties on the fly - shoutout to https://github.com/VincentGarreau/particles.js/issues/71 for the fix on this
 
                 // fixing the timing for the particle changes on scroll (needs to delay just slightly)
@@ -87,6 +85,8 @@
                     $.each(pJSDom[0].pJS.particles.array, function (i, p) {
                         pJSDom[0].pJS.particles.array[i].color.value = newColor;
                         pJSDom[0].pJS.particles.array[i].color.rgb = hexToRgb(newColor);
+                        // pJSDom[0].pJS.particles.line_linked.color = 'green';
+                        pJSDom[0].pJS.particles.line_linked.color = '#FCFCFC';
 
                     });
                 }, 10)
@@ -119,11 +119,14 @@
 
     <a>
         <div class="nav-fixed nav-tr test-light">
-            <button id="nav-toggle" data-state="closed" class="cursor-hover">
-                    <i class="material-icons" style="font-size: 2.25em">
-                            sort
-                            </i>
+
+                <button id="nav-toggle" class="hamburger--spin cursor-hover" data-state="closed" type="button">
+                        <span class="hamburger-box">
+                          <span class="hamburger-inner"></span>
+                        </span>
+                      </button>
             </button>
+
         </div>
     </a>
 
@@ -162,8 +165,8 @@
         <div class="container-fluid right-align" style="padding: 2em; height: inherit">
             <div class="row">
                 <div class="col l6"></div>
-                <div class="col s6 l3"
-                    style="padding-top: 6em; font-size: 2em; font-family: geomanist-regular; color: #FCFCFC">
+                <div class="col s6 l3 nav-link-container"
+                    style="padding-top: 3em; font-size: 2em; font-family: geomanist-regular; color: #FCFCFC">
                     <div class="nav-link" data-nav-index="0">Home</div>
                     <div class="nav-link" data-nav-index="1">About</div>
                     <div class="nav-link" data-nav-index="2">Portfolio</div>
@@ -175,40 +178,42 @@
     </div>
 
     <div class="section-scrollify" id="one" data-section-name="home" style="background: #FCFCFC; color: #06070E; text-align: left">
-        <div class="container" style="padding-top: 22em">
+        <div class="container" style="padding-top: 12em">
 
             <div class="row">
                 <div class="col l12">
-                        <div id="start">Click anywhere to launch.</div>
+                        <div id="start">Click anywhere to begin.</div>
                     <div id="splash">
-                        
-                        <h1 style="margin: 0 0 0 -4px; color: #FB3640"><span id="hello" class=""style="color: black">Hello</span> <span style="font-size: 1em"> Atlanta</span></h1>
-                        <h6 class="">My name is John. I create engaging web experiences.</h6>
-                        <a class="layer-3" style="padding: 3em 3em 3em 0; margin: 0;"><button id="btn-scroll" >Scroll</button></a>
+                        <h1 style="margin: 0 0 0 -4px; color: #FB3640"><span id="hello" style="color: #06070E">Hello</span> <span style="font-size: 1em"> Atlanta</span></h1>
+                        <h6>My name is John. I create engaging web experiences.</h6>
+                        <a class="layer-3" style="padding: 2em 3em 2em 0; margin: 0;"><button id="btn-scroll" >Scroll</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="section-scrollify" data-section-name="about"
-        style="background: none; color: #FCFCFC; text-align: left; position: relative; z-index: 00">
+    <div class="section-scrollify layer-1" data-section-name="about"
+        style="background: #FB3640; color: white; text-align: right; position: relative">
 
         <div class="container" style="padding-top: 20%">
             <div class="row">
+                <div class="col 2"></div>
                 <div class="col l8">
-                    <h1>Dev + Design</h1>
+                    <h1 style="color: #06070E">Dev + Design</h1>
                     <h6 style="color: black">I am a fullstack web developer.</h6>
-                    
                     <p>Since 2017, I have been rediscovering the bliss of design.</p>
+                        <button id="btn-scroll-1" style="color:#FCFCFC">More</button>
+                    
                 </div>
+                <div class="col 2"></div>
             </div>
         </div>
     </div>
 
-    <div class="section-scrollify" data-section-name="portfolio" style="background: #FFF05A; color: #06070E">
+    <div class="section-scrollify" data-section-name="portfolio" style="background: #06070E; color: #FCFCFC">
 
-        <div class="container layer-2" style="padding-top: 20%">
+        <div class="container" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
                     <h1>Projects</h1>
@@ -216,7 +221,7 @@
                     <a>
 
                         <div id="button-explore-container" class="layer-3">
-                            <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Mas</button>
+                            <button style="background: #FCFCFC; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Mas</button>
                         </div>
 
                     </a>
@@ -297,7 +302,7 @@
         <br>
     </div>
 
-    <div id="particles-js" style="z-index: 0; height: 100vh; position: fixed; top: 0; width: 100%"></div>
+    <div id="particles-js" class="start-canvas" style="z-index: 0; height: 100vh; position: fixed; top: 0; width: 100%"></div>
 
     <!-- Begin Cursors -->
     <div class="your-cursor2"></div>
@@ -329,6 +334,7 @@
             mouseY = e.pageY;
         });
 
+        
     </script>
 
 </body>

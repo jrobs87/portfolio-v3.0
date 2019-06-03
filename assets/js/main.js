@@ -1,35 +1,40 @@
+
+
+
 const sections = [
   {
     index: 0,
     name: 'Home',
     font: '',
-    cursor: '',
+    cursor: '#FB3640',
     cursorFollow: '#FB3640',
-    accentOne: '',
-    navBlock: '#FB3640',
+    accentOne: '#2B59C3',
+    navBlock: '#4d6cfa',
     navIcon: '#06070E',
-    particles: '#FB3640'
+    particles: '#FB3640',
+    lineLink: ' '
   },
   {
     index: 1,
     name: 'About',
     font: '',
-    cursor: '#2B59C3',
-    cursorFollow: '#2B59C3',
+    cursor: '#FCFCFC',
+    cursorFollow: '#FCFCFC',
     accentOne: '',
     navBlock: '#FDCA40',
-    navIcon: '#FCFCFC',
-    particles: '#2B59C3'
+    navIcon: '#06070E',
+    particles: '#2B59C3',
+    lineLink: '#2B59C3'
   },
   {
     index: 2,
     name: 'Projects',
-    font: '#06070E',
+    font: '#FCFCFC',
     cursor: '#2B59C3',
     cursorFollow: '#2B59C3',
     accentOne: '',
     navBlock: '#ff5817',
-    navIcon: '#06070E',
+    navIcon: '#FCFCFC',
     particles: '#2B59C3'
   },
   {
@@ -69,6 +74,7 @@ const sections = [
 
 // Document Ready
 $(document).ready(function () {
+
   console.log('Site loaded - send it, Jerry!');
 
   /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
@@ -79,25 +85,52 @@ $(document).ready(function () {
     // ===== LAUNCH SPLASH PAGE ==================== 
 
     // initial setup
-$('#start').css('opacity', 1)
-$('#start').css('margin-top', 0);
+    $('#start').css('opacity', 1)
+    $('#start').css('top', '8em');
 
-  $.scrollify.disable();
+    $.scrollify.disable();
+    let clicks = 0;
+    // single use function to fire off the splash events and then unbind itself from the click handler (squashed second bug today on 06.01!!)
+    // The second bug was a scroll event parameter related to it being a passive event handler and google changed the browser default.  
+    // Checking forums revealed it was a known issue and a new versioning was  released 2 months ago - fixed it!
+    $('#particles-js').on('click', function () {
 
-  $('#particles-js').on('click', function() {
-    console.log('Splash Page init');
-    $('button').css('visibility', 'visible');
-    $('button').css('opacity', '1');
+      // $(this).off("click");
 
-    $('#splash').css('visibility', 'visible');
-    $('#splash').css('opacity', '1');
+      clicks = clicks + 1;
+      console.log(clicks)
 
-    $('#start').css('transition-delay', '0s')
-    $('#start').css('opacity', 0)
-    $('#start').css('margin-bottom', '3em');
+      // enabling scroll once and revealing nav and splash elements
+      if (clicks === 1) {
+        console.log('Click count reached.');
 
-    $.scrollify.enable();
-  })
+        // completely resets particles
+        // pJSDom[0].pJS.particles.number.value = 3;
+        // pJSDom[0].pJS.fn.particlesRefresh();
+
+        // pJSDom[0].pJS.interactivity.events.onclick.mode = 'bubble';
+        // pJSDom[0].pJS.interactivity.events.onhover.mode = 'none';
+
+        console.log('Splash Page init');
+
+        // showing buttons and revealing splash
+        $('button').css('visibility', 'visible');
+        $('button').css('opacity', '1');
+
+        $('#splash').css('visibility', 'visible');
+        $('#splash').css('opacity', '1');
+        $('#splash').css('top', '8em');
+
+        $('#start').css('transition-delay', '0s');
+        $('#start').css('opacity', 0);
+        $('#start').css('top', '0em');
+
+        $.scrollify.enable(); // only run once - this caused a bug where double clicks made scrolling immediately after sent the user to the bottom of the page
+      }
+
+    })
+
+
     // Global Objects and Functions
 
     // Declare function to set states (nav-toggle or other)
@@ -107,13 +140,14 @@ $('#start').css('margin-top', 0);
 
     // Nav menu toggle icon
     let toggle = $('#nav-toggle'); // set toggle element to variable  
-
     let navMain = $('#nav-main');
+
 
     // Toggle the nav-main element opened or closed
     $('#nav-toggle').click(function () {
 
       let state = $(this).attr('data-state'); // 
+
 
       // Reset the cursoe to current sectin defaults
       cursorReset = function (cursor, follow) {
@@ -124,12 +158,21 @@ $('#start').css('margin-top', 0);
       // check state and update
       if (state === 'closed') {
         $.scrollify.disable(); // pause scroll behavior while nav menu is open
+        $('.hamburger--spin').addClass('is-active');
+        $('.hamburger-inner').addClass('active-hb');
 
+        $('.cursor-hover').css('color', 'white');
         // $('.your-cursor2').css('background', '#2BC016'); // Set current section cursor for nav modal
         // $('.follow2').css('background', '#2BC016'); // Set current section cursor follow  for nav modal
 
+        navMain.css('opacity', '1'); // moves nav into view 
+
+        $('.nav-link-container').css('top', '0em');
+        $('.nav-link-container').css('opacity', '1');
+
         $('#nav-block').css('top', 0); // moves nav into view 
         navMain.css('top', '0'); // moves nav into view 
+
 
         state = 'open'; // load the new state into a variable
 
@@ -147,6 +190,13 @@ $('#start').css('margin-top', 0);
         state = 'closed'; // load the new state into a variable
         $.scrollify.enable(); // resume scroll behavior while nav menu is closed
 
+        navMain.css('opacity', '0'); // reset the nav modal to opacity 0
+        $('.nav-link-container').css('top', '-10em'); // reset position
+        $('.nav-link-container').css('opacity', '0');
+
+        $('.hamburger--spin').removeClass('is-active');
+        $('.hamburger-inner').removeClass('active-hb');
+
         setTimeout(function () {
           // cursorReset();  // reset to section defaults for cursor
         }, 500)
@@ -157,6 +207,10 @@ $('#start').css('margin-top', 0);
     });
 
     $('.nav-link').on('click', function () {
+
+      $('.hamburger--spin').removeClass('is-active');
+      $('.hamburger-inner').removeClass('active-hb');
+
       $.scrollify.enable(); // resume scroll behavior while nav menu is closed
       index = parseInt($(this).attr('data-nav-index')); // grabs index reference of section to which we are moving
       // move = parseInt(index); 
@@ -168,7 +222,10 @@ $('#start').css('margin-top', 0);
       navMain.css('top', '-100vh'); // moves nav out of view
       setState(toggle, 'closed'); // pass state into element (nav-toggle) data-state attribute
 
-      cursorReset(); // reset to section defaults for cursor
+      $('.nav-link-container').css('top', '-10em'); // reset position
+      $('.nav-link-container').css('opacity', '0');
+
+      // cursorReset(); // reset to section defaults for cursor
     })
 
   });
