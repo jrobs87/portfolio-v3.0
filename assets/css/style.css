@@ -65,16 +65,16 @@ body {
 }
 
 p {
-    font-size: 2em;
+    font-size: 0.88em !important;
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 5em;
     font-family: geomanist-thin;
 }
 
 h6 {
-    font-size: 1.33em;
+    font-size: 1.22em;
     font-family: geomanist-lite;
 }
 
@@ -418,4 +418,26 @@ background: black;
     opacity: 0;
     top: -10em;
     /* background: white; */
+}
+
+#fixed-shape {
+    position: fixed;
+    bottom: -10em;
+    left: -12em;
+    width: 90%;
+    height: 0vh;
+    background: #FB3640;
+    opacity: 0.08;
+    border-radius: 12em;
+    /* z-index: 3000; */
+    transition-duration: 2s;
+transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#tester {
+    position: fixed;
+    z-index: 10000;
+    padding-top: 3em;
+    margin: auto;
+
 }

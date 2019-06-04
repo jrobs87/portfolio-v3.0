@@ -23,8 +23,6 @@
         integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
     <!-- easing library -->
     <script src="assets/js/easing.js"></script>
-    
-    
     <!-- imperative to load scrollify before content -->
     <script src="Scrollify/jquery.scrollify.js"></script>
     <!-- particles js -->
@@ -177,43 +175,59 @@
         </div>
     </div>
 
-    <div class="section-scrollify" id="one" data-section-name="home" style="background: #FCFCFC; color: #06070E; text-align: left">
-        <div class="container" style="padding-top: 12em">
+
+<!-- <div id="fixed-shape">
+
+
+</div> -->
+<!-- 
+<button id="tester">
+    test
+</button> -->
+
+<!-- --------------- SECTION HOME --------------- -->
+    <div class="section-scrollify" id="one" data-section-name="home" style="background: #FCFCFC; color: #06070E; text-align: center">
+        <div class="container" style="padding-top: 14%">
 
             <div class="row">
                 <div class="col l12">
-                        <div id="start">Click anywhere to begin.</div>
+                        <div id="start">Bienvenidos.  Click anywhere to begin.</div>
                     <div id="splash">
                         <h1 style="margin: 0 0 0 -4px; color: #FB3640"><span id="hello" style="color: #06070E">Hello</span> <span style="font-size: 1em"> Atlanta</span></h1>
                         <h6>My name is John. I create engaging web experiences.</h6>
-                        <a class="layer-3" style="padding: 2em 3em 2em 0; margin: 0;"><button id="btn-scroll" >Scroll</button></a>
+                        <a class="layer-3" style="padding: 2em 3em 2em 3em; margin: 0;"><button id="btn-scroll" >Scroll</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- --------------- SECTION ABOUT --------------- -->
     <div class="section-scrollify layer-1" data-section-name="about"
-        style="background: #FB3640; color: white; text-align: right; position: relative">
-
-        <div class="container" style="padding-top: 20%">
-            <div class="row">
-                <div class="col 2"></div>
-                <div class="col l8">
-                    <h1 style="color: #06070E">Dev + Design</h1>
-                    <h6 style="color: black">I am a fullstack web developer.</h6>
-                    <p>Since 2017, I have been rediscovering the bliss of design.</p>
-                        <button id="btn-scroll-1" style="color:#FCFCFC">More</button>
-                    
+        style="background: #FB3640; color: white; position: relative">
+        <div class="container" style="padding-top: 14%">
+            <div class="row headline">
+               
+                <div class="col m12 l8 offset-l4" style="text-align: right">
+                    <h1 style="color: white">Development & Design</h1>
+                        
                 </div>
-                <div class="col 2"></div>
+                
+            </div>
+            <div class="row headline">
+                <div class="col l6" style="text-align: justify">
+                    <h6 style="color: black">I am a fullstack web developer.</h6>
+                    <p>Since 2017, I have been rediscovering the bliss of design thru the web.  I build fullstack web apps, static sites, and UI goodies.</p>
+                    <button id="btn-scroll-1" style="color:#FCFCFC">More</button>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- --------------- SECTION PORTFOLIO --------------- -->
     <div class="section-scrollify" data-section-name="portfolio" style="background: #06070E; color: #FCFCFC">
 
-        <div class="container" style="padding-top: 20%">
+        <div class="container headline" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
                     <h1>Projects</h1>
@@ -263,10 +277,11 @@
         </div>
     </div>
 
+    <!-- --------------- SECTION MUSINGS --------------- -->
     <div class="section-scrollify" data-section-name="musings"
         style="background: #FCFCFC; color: #06070E; text-align: right; position: relative; z-index: 100">
 
-        <div class="container" id="portfolio-splash" style="padding-top: 20%">
+        <div class="container headline" id="portfolio-splash" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
                     <h1>Musings</h1>
@@ -280,10 +295,11 @@
 
     </div>
 
+    <!-- --------------- SECTION CONTACT --------------- -->
     <div class="section-scrollify" data-section-name="contact"
         style="background: #F17300; color: #FCFCFC; font-family: geomanist-thin">
 
-        <div class="container" style="padding-top: 20%">
+        <div class="container headline" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
                     <h1>Connect With Me</h1>
@@ -295,6 +311,7 @@
         </div>
     </div>
 
+    <!-- --------------- SECTION FOOTER --------------- -->
     <div class="footer" data-section-name="footer">
         <br>
         <br>
@@ -302,6 +319,7 @@
         <br>
     </div>
 
+<!-- --------------- PARTICLES JS ENTRY POINT --------------- -->
     <div id="particles-js" class="start-canvas" style="z-index: 0; height: 100vh; position: fixed; top: 0; width: 100%"></div>
 
     <!-- Begin Cursors -->
@@ -315,8 +333,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <!-- Script to power the cursor -->
     <script src="assets/js/addthisshit2.js"></script>
-
     <!-- Main script for site -->
+    <script src="assets/js/scrollreveal.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
         // REPLACE CURSOR WITH ANIME.JS VERSION LATER - USE THIS: https://codepen.io/tguelcan-the-sasster/full/ROoxWm
@@ -334,7 +352,7 @@
             mouseY = e.pageY;
         });
 
-        
+        ScrollReveal().reveal('.headline', { delay: 333, distance: '100px', origin: 'bottom', duration: 666});
     </script>
 
 </body>

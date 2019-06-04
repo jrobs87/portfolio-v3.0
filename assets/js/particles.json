@@ -26,43 +26,43 @@
       }
     },
     "opacity": {
-      "value": 0.214,
+      "value": 0.44,
       "random": false,
       "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0,
+        "enable": true,
+        "speed": 0.33,
+        "opacity_min": 0.16,
         "sync": false
       }
     },
     "size": {
-      "value": 6,
+      "value": 18,
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 3,
-        "size_min": 0,
+        "speed": 6,
+        "size_min": 6,
         "sync": false
       }
     },
     "line_linked": {
-      "enable": true,
+      "enable": false,
       "distance": 266,
-      "color": "#4d6cfa",
+      "color": "#FB3640",
       "opacity": 0.2,
       "width": 0.66
     },
     "move": {
       "enable": true,
-      "speed": 3.33,
+      "speed": 2.33,
       "direction": "none",
       "random": true,
       "straight": false,
       "out_mode": "bounce",
       "attract": {
         "enable": false,
-        "rotateX": 500,
-        "rotateY": 500
+        "rotateX": 2000,
+        "rotateY": 2000
       }
     }
   },
@@ -83,21 +83,21 @@
       "grab": {
         "distance": 200,
         "line_linked": {
-          "opacity": 0.666
+          "opacity": 0.66
         }
       },
       "bubble": {
-        "distance": 600, 
-        "size": 9,
-        "duration": 1.33,
-        "opacity": 0.36,
-        "speed": 600
+        "distance": 1000, 
+        "size": 66,
+        "duration": 6.66,
+        "opacity": 0.16,
+        "speed": 900
       },
       "repulse": {
-        "distance": 333
+        "distance": 222
       },
       "push": {
-        "particles_nb": 3
+        "particles_nb": 33
       },
       "remove": {
         "particles_nb": 100

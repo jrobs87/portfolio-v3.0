@@ -21,7 +21,7 @@ const sections = [
     cursor: '#FCFCFC',
     cursorFollow: '#FCFCFC',
     accentOne: '',
-    navBlock: '#FDCA40',
+    navBlock: '#FCFCFC',
     navIcon: '#06070E',
     particles: '#2B59C3',
     lineLink: '#2B59C3'
@@ -30,8 +30,8 @@ const sections = [
     index: 2,
     name: 'Projects',
     font: '#FCFCFC',
-    cursor: '#2B59C3',
-    cursorFollow: '#2B59C3',
+    cursor: '#FCFCFC',
+    cursorFollow: '#FCFCFC',
     accentOne: '',
     navBlock: '#ff5817',
     navIcon: '#FCFCFC',
@@ -75,6 +75,11 @@ const sections = [
 // Document Ready
 $(document).ready(function () {
 
+  $('#tester').on('click', function() {
+    // $('#fixed-shape').css("border-radius", "0");
+    $('#fixed-shape').css("height", "80vh");
+  })
+
   console.log('Site loaded - send it, Jerry!');
 
   /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
@@ -108,7 +113,8 @@ $(document).ready(function () {
         // pJSDom[0].pJS.particles.number.value = 3;
         // pJSDom[0].pJS.fn.particlesRefresh();
 
-        // pJSDom[0].pJS.interactivity.events.onclick.mode = 'bubble';
+        pJSDom[0].pJS.interactivity.modes.push.particles_nb = 3;
+        console.log('mouse click behavior changed to bubble')
         // pJSDom[0].pJS.interactivity.events.onhover.mode = 'none';
 
         console.log('Splash Page init');
@@ -119,13 +125,17 @@ $(document).ready(function () {
 
         $('#splash').css('visibility', 'visible');
         $('#splash').css('opacity', '1');
-        $('#splash').css('top', '8em');
+        $('#splash').css('top', '6em');
 
         $('#start').css('transition-delay', '0s');
         $('#start').css('opacity', 0);
         $('#start').css('top', '0em');
 
         $.scrollify.enable(); // only run once - this caused a bug where double clicks made scrolling immediately after sent the user to the bottom of the page
+      } else if (clicks === 3) {
+        // changing mouse click behavior to bubble to prevent user from adding too many particles and affecting performance
+        //  pJSDom[0].pJS.interactivity.events.onclick.mode = 'bubble';
+        //  console.log('mouse click behavior changed to bubble')
       }
 
     })
