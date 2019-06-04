@@ -311,6 +311,7 @@ z-index: 1996;
     pointer-events: none;
     transform: translate(8px, 8px);
     opacity: 0.1;
+    backdrop-filter: invert(70%);
 }
 
 .follow2.active {

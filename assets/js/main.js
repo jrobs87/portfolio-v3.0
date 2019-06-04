@@ -253,6 +253,6 @@ $(document).ready(function () {
   $('.collapsible').collapsible();
 
 
-
+  $.scrollify.instantMove(0);
 });
 
