@@ -23,7 +23,7 @@ const sections = [
     accentOne: '',
     navBlock: '#FCFCFC',
     navIcon: '#06070E',
-    particles: '#2B59C3',
+    particles: '#FB3640',
     lineLink: '#2B59C3'
   },
   {
@@ -114,8 +114,13 @@ $(document).ready(function () {
         // pJSDom[0].pJS.fn.particlesRefresh();
 
         pJSDom[0].pJS.interactivity.modes.push.particles_nb = 3;
-        console.log('mouse click behavior changed to bubble')
-        // pJSDom[0].pJS.interactivity.events.onhover.mode = 'none';
+        console.log('mouse click behavior changed to bubble');
+
+// need this minor delay to ensure push/repulse animation finishes, then switch to grab
+         setTimeout(function() {
+          pJSDom[0].pJS.interactivity.events.onhover.mode = 'grab';
+         },100)
+        
 
         console.log('Splash Page init');
 
