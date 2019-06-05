@@ -34,7 +34,7 @@ const sections = [
     cursorFollow: '#FCFCFC',
     accentOne: '',
     navBlock: '#ff5817',
-    navIcon: '#FCFCFC',
+    navIcon: '#4d6cfa',
     particles: '#2B59C3'
   },
   {

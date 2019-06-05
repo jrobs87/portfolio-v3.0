@@ -31,7 +31,7 @@
 
         // intiliaze the scrollify library
         $(function () {
-            
+
             $.scrollify({
                 section: ".section-scrollify",
             });
@@ -72,7 +72,7 @@
                 $('.nav-link').css('color', sections[sectionCurrent].navBlock);
 
                 $('button').css('color', sections[sectionCurrent].navIcon);
-                
+
                 // pJSDom[0].pJS.fn.particlesRefresh() // resets entire particles canvas
                 // adjust particles properties on the fly - shoutout to https://github.com/VincentGarreau/particles.js/issues/71 for the fix on this
 
@@ -118,11 +118,11 @@
     <a>
         <div class="nav-fixed nav-tr test-light">
 
-                <button id="nav-toggle" class="hamburger--spin cursor-hover" data-state="closed" type="button">
-                        <span class="hamburger-box">
-                          <span class="hamburger-inner"></span>
-                        </span>
-                      </button>
+            <button id="nav-toggle" class="hamburger--spin cursor-hover" data-state="closed" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
             </button>
 
         </div>
@@ -175,27 +175,21 @@
         </div>
     </div>
 
-
-<!-- <div id="fixed-shape">
-
-
-</div> -->
-<!-- 
-<button id="tester">
-    test
-</button> -->
-
-<!-- --------------- SECTION HOME --------------- -->
-    <div class="section-scrollify" id="one" data-section-name="home" style="background: #FCFCFC; color: #06070E; text-align: center">
+    <!-- --------------- SECTION HOME --------------- -->
+    <div class="section-scrollify" id="one" data-section-name="home"
+        style="background: #FCFCFC; color: #06070E; text-align: center">
         <div class="container" style="padding-top: 14%">
 
             <div class="row">
                 <div class="col s12 m12 l12">
-                        <div id="start">Bienvenidos.  Click anywhere to begin.</div>
+                    <div id="start">Bienvenidos. Click anywhere to begin.</div>
                     <div id="splash">
-                        <h1 style="margin: 0 0 0 -4px; color: #FB3640"><span id="hello" style="color: #06070E">Hello</span> <span style="font-size: 1em"> Atlanta</span></h1>
+                        <h1 style="margin: 0 0 0 -4px; color: #FB3640"><span id="hello"
+                                style="color: #06070E">Hello</span> <span style="font-size: 1em"> Atlanta</span></h1>
                         <h6>My name is John. I create engaging web experiences.</h6>
-                        <a class="layer-3" style="padding: 2em 3em 2em 3em; margin: 0;"><button id="btn-scroll" >Scroll</button></a>
+                        <a class="layer-3" style="padding: 2em 3em 2em 3em; margin: 0;"><button
+                                id="btn-scroll">Scroll</button></a>
+                                
                     </div>
                 </div>
             </div>
@@ -207,17 +201,18 @@
         style="background: #FB3640; color: white; position: relative">
         <div class="container" style="padding-top: 14%">
             <div class="row headline">
-               
-                <div class="col m12 l8 offset-l4" style="text-align: right">
+
+                <div class="col s12 m12 l8 offset-l4" style="text-align: right">
                     <h1 style="color: white">Development & Design</h1>
-                        
+
                 </div>
-                
+
             </div>
             <div class="row headline">
                 <div class="col l6" style="text-align: justify">
                     <h6 style="color: black">I am a fullstack web developer.</h6>
-                    <p>Since 2017, I have been rediscovering the bliss of design thru the web.  I build fullstack web apps, static sites, and UI goodies.</p>
+                    <p>Since 2017, I have been rediscovering the bliss of design thru the web. I build fullstack web
+                        apps, static sites, and UI goodies.</p>
                     <button id="btn-scroll-1" style="color:#FCFCFC">More</button>
                 </div>
             </div>
@@ -227,52 +222,34 @@
     <!-- --------------- SECTION PORTFOLIO --------------- -->
     <div class="section-scrollify" data-section-name="portfolio" style="background: #06070E; color: #FCFCFC">
 
+            <div class="container" style="padding-top: 14%">
+
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div id="">Bienvenidos. Click anywhere to begin.</div>
+                            <div>
+                                <h1 style="margin: 0 0 0 -4px; color: #FB3640"><span id="hello"
+                                        style="color: white">Hello</span> <span style="font-size: 1em"> Atlanta</span></h1>
+                                <h6>My name is John. I create engaging web experiences.</h6>
+                                <a class="layer-3" style="padding: 2em 3em 2em 3em; margin: 0;"><button
+                                        id="btn-scroll">Scroll</button></a>
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         <div class="container headline" style="padding-top: 20%">
             <div class="row">
                 <div class="col l12">
                     <h1>Projects</h1>
                     <h6>Production Sites, web apps, toy apps, and work-in-progress.</h6>
-                    <a>
-
-                        <div id="button-explore-container" class="layer-3">
-                            <button style="background: #FCFCFC; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Mas</button>
-                        </div>
-
+                   <a class="layer-3" style="position: relative; border: 1px solid white; z-index: 3000">TEST</a>
+                   <a class="layer-3" style="padding: 2em 3em 2em 3em; margin: 0;">Scroll</a>
+                   <a class="layer-3" style="color: black">
+                        <button>test</button>
                     </a>
                 </div>
-            </div>
-        </div>
-
-        <div class="container layer-3" id="portfolio-list" style="text-align: left;">
-           
-<div class="row">
-        <div class="col l4">
-                <ul class="collapsible" style="background: none; border: none; box-shadow: none">
-                        <li>
-                          <div class="collapsible-header" style="background: none; border: none"><i class="material-icons">filter_drama</i>Web Apps</div>
-                          <div class="collapsible-body">
-                              <ul>
-                                    <li>
-                                            <a><button>FriendFinder</button></a>
-                                        </li>
-                                  <li>
-                                      <a><button>Shrug</button></a>
-                                  </li>
-                              </ul>
-                          </div>
-                          
-                        </li>
-                        <li>
-                          <div class="collapsible-header"><i class="material-icons">place</i>Live Sites</div>
-                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                        </li>
-                        <li>
-                          <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                        </li>
-                      </ul>
-                                 
-        </div>
             </div>
         </div>
     </div>
@@ -286,7 +263,8 @@
                 <div class="col l12">
                     <h1>Musings</h1>
                     <h6>Thoughts on development, design, UI, and UX.</h6>
-                    <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Mas</button>
+                    <button
+                        style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Mas</button>
                 </div>
             </div>
         </div>
@@ -304,8 +282,10 @@
                 <div class="col l12">
                     <h1>Connect With Me</h1>
                     <h6>Let's chat via Slack, email, or social media.</h6>
-                    <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Slack</button>
-                    <button style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Email</button>
+                    <button
+                        style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Slack</button>
+                    <button
+                        style="background: #06070E; color: #FCFCFC; padding: .5em 1em .5em 1em; margin-top: 2em; width: 6em">Email</button>
                 </div>
             </div>
         </div>
@@ -319,8 +299,9 @@
         <br>
     </div>
 
-<!-- --------------- PARTICLES JS ENTRY POINT --------------- -->
-    <div id="particles-js" class="start-canvas" style="z-index: 0; height: 100vh; position: fixed; top: 0; width: 100%"></div>
+    <!-- --------------- PARTICLES JS ENTRY POINT --------------- -->
+    <div id="particles-js" class="start-canvas" style="z-index: 0; height: 100vh; position: fixed; top: 0; width: 100%">
+    </div>
 
     <!-- Begin Cursors -->
     <div class="your-cursor2"></div>
@@ -352,7 +333,7 @@
             mouseY = e.pageY;
         });
 
-        ScrollReveal().reveal('.headline', { delay: 333, distance: '100px', origin: 'bottom', duration: 666});
+        ScrollReveal().reveal('.headline', { delay: 333, distance: '100px', origin: 'bottom', duration: 666 });
     </script>
 
 </body>

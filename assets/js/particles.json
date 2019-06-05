@@ -8,7 +8,7 @@
       }
     },
     "color": {
-      "value": "#4d6cfa"
+      "value": "#FB3640"
     },
     "shape": {
       "type": "circle",
@@ -36,7 +36,7 @@
       }
     },
     "size": {
-      "value": 9,
+      "value": 18,
       "random": true,
       "anim": {
         "enable": true,
@@ -91,10 +91,10 @@
         "size": 66,
         "duration": 6.66,
         "opacity": 0.16,
-        "speed": 900
+        "speed": 100
       },
       "repulse": {
-        "distance": 111
+        "distance": 66
       },
       "push": {
         "particles_nb": 33
