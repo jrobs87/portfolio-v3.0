@@ -129,7 +129,7 @@
     </a>
 
     <div class="pagination"
-        style=" position: fixed; z-index: 1000; left: 2.25em; bottom: 2em; height: 14em; text-align: left; font-family: geomanist-regular; color: white;">
+        style=" position: fixed; z-index: 1000; left: 2.25em; bottom: 2em; height: 14em; text-align: left; font-family: geomanist-regular; color: white; width: 2em">
         <div class="current-page" style="color: #06070E">1</div>
         <div class="pagination-container"
             style="height: 10em; width: 2px; background: #28304417; margin: .25em 0 .25em .15em">
@@ -147,11 +147,17 @@
         </div>
     </a>
 
+    <!-- social links -->
     <a>
         <div class="nav-fixed nav-br test-light">
-            <button data-state="closed" class="cursor-hover">
+            <!-- <button data-state="closed" class="cursor-hover"> -->
+            <button class="social-link" id="github">
                 <i class="fab fa-github"></i>
+            </button>
+            <button class="social-link" id="instagram">
                 <i class="fab fa-instagram"></i>
+            </button>
+            <button class="social-link" id="twitter">
                 <i class="fab fa-twitter"></i>
             </button>
         </div>
@@ -189,7 +195,7 @@
                         <h6>My name is John. I create engaging web experiences.</h6>
                         <a class="layer-3" style="padding: 2em 3em 2em 3em; margin: 0;"><button
                                 id="btn-scroll">Scroll</button></a>
-                                
+
                     </div>
                 </div>
             </div>
@@ -202,17 +208,18 @@
         <div class="container" style="padding-top: 14%">
             <div class="row headline">
 
-                <div class="col s12 m12 l8 offset-l4" style="text-align: right">
+                <div class="col s12 m12 l8 offset-l4" id="header-about" style="text-align: right">
                     <h1 style="color: white">Development & Design</h1>
-
+                    
                 </div>
 
             </div>
             <div class="row headline">
                 <div class="col l6" style="text-align: justify">
-                    <h6 style="color: black">I am a fullstack web developer.</h6>
-                    <p>Since 2017, I have been rediscovering the bliss of design thru the web. I build fullstack web
-                        apps, static sites, and UI goodies.</p>
+                    <h5 style="color: black">All Things Web</h5>
+                    <p>I am a fullstack freelance web developer and designer, especially focused on engaging frontend
+                        and UI experiences. I create web sites and applications for small businesses to boost their
+                        brand and deliver smooth experiences for customers.</p>
                     <button id="btn-scroll-1" style="color:#FCFCFC">More</button>
                 </div>
             </div>
@@ -222,36 +229,92 @@
     <!-- --------------- SECTION PORTFOLIO --------------- -->
     <div class="section-scrollify" data-section-name="portfolio" style="background: #06070E; color: #FCFCFC">
 
-            <div class="container" style="padding-top: 14%">
-
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <div id="">Bienvenidos. Click anywhere to begin.</div>
-                            <div>
-                                <h1 style="margin: 0 0 0 -4px; color: #FB3640"><span id="hello"
-                                        style="color: white">Hello</span> <span style="font-size: 1em"> Atlanta</span></h1>
-                                <h6>My name is John. I create engaging web experiences.</h6>
-                                <a class="layer-3" style="padding: 2em 3em 2em 3em; margin: 0;"><button
-                                        id="btn-scroll">Scroll</button></a>
-                                        
+        <div class="container" style="padding-top: 4%">
+            <div class="row">
+                <h1 style="color: white">Portfolio</h1>
+                <ul class="collapsible layer-3">
+                    <li>
+                        <div class="collapsible-header collapsible-header" style="background: none"><i
+                                class="material-icons">filter_drama</i>Production Sites</div>
+                        <div class="collapsible-body collapsible-content">
+                            <div class="row">
+                                <div class="col s8">Atlanta CFO Forum</div>
+                                <div class="col s2"><a class="layer-3" style="color: white" href="http://cfoforumatlanta.com/" target="blank">Visit Site</a></div>
+                                <div class="col s2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">Popa Duck Lodge</div>
+                                <div class="col s2"><a style="color: white" href="http://popaduck.com/" target="blank">Visit Site</a></div>
+                                <div class="col s2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">Waycaster Allred Law</div>
+                                <div class="col s2"><a style="color: white" href="https://waycaster-allred-law.com/" target="blank">Visit Site</a></div>
+                                <div class="col s2"></div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
 
-        <div class="container headline" style="padding-top: 20%">
-            <div class="row">
-                <div class="col l12">
-                    <h1>Projects</h1>
-                    <h6>Production Sites, web apps, toy apps, and work-in-progress.</h6>
-                   <a class="layer-3" style="position: relative; border: 1px solid white; z-index: 3000">TEST</a>
-                   <a class="layer-3" style="padding: 2em 3em 2em 3em; margin: 0;">Scroll</a>
-                   <a class="layer-3" style="color: black">
-                        <button>test</button>
-                    </a>
-                </div>
+                    <li>
+                        <div class="collapsible-header collapsible-header"><i class="material-icons">place</i>Web + CLI Apps
+                        </div>
+                        <div class="collapsible-body collapsible-content">
+                            <div class="row">
+                                <div class="col s8">Shrug</div>
+                                <div class="col s2"><a style="color: white" href="https://jrobs87.github.io/group_5_project_1/" target="blank">Visit Site</a></div>
+                                <div class="col s2"><a style="color: white" href="https://github.com/jrobs87/group_5_project_1" target="blank">GitHub</a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">FriendFinder</div>
+                                <div class="col s2"><a style="color: white" href="https://friendfinder-gt.herokuapp.com/" target="blank">Visit Site</a></div>
+                                <div class="col s2"><a style="color: white" href="https://github.com/jrobs87/FriendFinder">GitHub</a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">Bamazon</div>
+                                <div class="col s2"></div>
+                                <div class="col s2"><a style="color: white" href="https://github.com/jrobs87/bamazon" target="blank">GitHub</a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">Liri Node App</div>
+                                <div class="col s2"></div>
+                                <div class="col s2"><a style="color: white" href="https://github.com/jrobs87/bamazon" target="blank">GitHub</a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">Burger App</div>
+                                <div class="col s2"></div>
+                                <div class="col s2"><a style="color: white" href="https://github.com/jrobs87/Burger" target="blank">GitHub</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header collapsible-header"><i class="material-icons">whatshot</i>Toy
+                            Apps + Games</div>
+                        <div class="collapsible-body collapsible-content"> 
+                            <div class="row">
+                                <div class="col s8">Pale Blue Dot - Trivia Game</div>
+                                <div class="col s2"><a style="color: white" href="https://jrobs87.github.io/TriviaGame/" target="blank">Visit Site</a></div>
+                                <div class="col s2"><a style="color: white" href="https://github.com/jrobs87/TriviaGame" target="blank">GitHub</a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">A New Hope - Word Guessing Game</div>
+                                <div class="col s2"><a style="color: white" href="https://jrobs87.github.io/Word-Guess-Game/" target="blank">Visit Site</a></div>
+                                <div class="col s2"><a style="color: white" href="https://github.com/jrobs87/Word-Guess-Game" target="blank">GitHub</a></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">Crystal Collector - Number Guessing Game</div>
+                                <div class="col s2"><a style="color: white" href="https://jrobs87.github.io/The-Crystal-Collector/" target="blank">Visit Site</a></div>
+                                <div class="col s2"><a style="color: white" href="https://github.com/jrobs87/The-Crystal-Collector" target="blank">GitHub</a></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
             </div>
         </div>
+    </div>
+    </div>
+
+
     </div>
 
     <!-- --------------- SECTION MUSINGS --------------- -->
@@ -308,6 +371,62 @@
     <div class="follow2"></div>
     <!-- End Cursors -->
 
+    <!-- // remove this -->
+    <div id="portfolio-modal">
+        <div class="container">
+            <div class="row">
+                <button>close</button>
+
+            </div>
+            <div class="row">
+                <div class="col s12" style="background: none">
+                    <ul class="tabs" style="background: none">
+                        <li class="tab col s4"><a href="#test1" style="background: none">Live Sites</a></li>
+                        <li class="tab col s4"><a class="active" href="#test2">Web Apps</a></li>
+
+                        <li class="tab col s4"><a href="#test4">Toy Apps</a></li>
+                    </ul>
+                </div>
+
+                <div id="test1" class="col s12">
+                    <br>
+                    <ul class="collapsible">
+
+                        <li>
+                            <div class="collapsible-header collapsible-header" style="background: none"><i
+                                    class="material-icons">filter_drama</i>Atlanta CFO Forum</div>
+                            <div class="collapsible-body collapsible-content"><span>Forum and job board for executive
+                                    talent based in Atlanta GA. Features user accounts, job posting and search
+                                    funcionality, and event planning. In production, 2019.</span>
+                                <div class="collapisble-links">
+                                    <a href="" style="z-index: 4000">Visit</a>
+                                    <a href="">Github</a>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="collapsible-header collapsible-header"><i class="material-icons">place</i>Popa
+                                Duck Lodge</div>
+                            <div class="collapsible-body collapsible-content"><span>Infomrational site for a hunting
+                                    lodge and guide service in St. Charles, Arkansas. In production, 2018.</span></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header collapsible-header"><i
+                                    class="material-icons">whatshot</i>Waycaster Allred Law</div>
+                            <div class="collapsible-body collapsible-content"><span>Professional services page for a law
+                                    practice based in Dalton, GA. In production, 2019.</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="test2" class="col s12">Test 2</div>
+
+                <div id="test4" class="col s12">Test 4</div>
+            </div>
+        </div>
+
+
+    </div>
     <!-- materialize css library for grid and components -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- TweenMax to power the custom cursor (also to try out the animation library vs animejs) -->
@@ -334,6 +453,8 @@
         });
 
         ScrollReveal().reveal('.headline', { delay: 333, distance: '100px', origin: 'bottom', duration: 666 });
+
+
     </script>
 
 </body>

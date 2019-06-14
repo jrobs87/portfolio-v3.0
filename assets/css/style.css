@@ -84,12 +84,12 @@ p {
 
 a {
     /* Overrding the default initially */
-    color: #FCFCFC;
+    /* color: #FCFCFC; */
 }
 
 i {
-    font-size: 1.75em;
-    margin: 0 0 0 0.5em;
+    font-size: 1.6em;
+    /* margin: 0 0 0 0.5em; */
 }
 
 i:hover {
@@ -175,6 +175,7 @@ button:focus {
 .nav-fixed:hover {
     padding: 4.66em;
     opacity: 1;
+    transform: scale(1.15);
 }
 
 .nav-tl {
@@ -424,3 +425,37 @@ button:focus {
     /* background: white; */
 }
 
+.social-link {
+    padding-left: 0;
+}
+
+.social-link:hover {
+    transform: scale(1.3)
+}
+
+#header-about {
+    transform: 1s;
+}
+
+#portfolio-modal {
+width: 100%;
+height: 100vh;
+z-index: 1999;
+position: fixed;
+top: 100vh; 
+left: 0;
+background: black;
+color: white;
+/* transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1); */
+transition-duration: .33s;
+opacity: 0;
+}
+
+.collapsible-header {
+    background: none;
+}
+
+.collapsible-content {
+    background: none;
+    text-align: left;
+}

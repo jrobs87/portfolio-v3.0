@@ -1,6 +1,5 @@
 
-
-
+// Section Properties (colors, nav, paricle behavior)
 const sections = [
   {
     index: 0,
@@ -30,8 +29,8 @@ const sections = [
     index: 2,
     name: 'Projects',
     font: '#FCFCFC',
-    cursor: '#FCFCFC',
-    cursorFollow: '#FCFCFC',
+    cursor: '#FB3640',
+    cursorFollow: '#FB3640',
     accentOne: '',
     navBlock: '#ff5817',
     navIcon: '#4d6cfa',
@@ -75,17 +74,46 @@ const sections = [
 // Document Ready
 $(document).ready(function () {
 
-  $('#tester').on('click', function() {
-    // $('#fixed-shape').css("border-radius", "0");
-    $('#fixed-shape').css("height", "80vh");
+
+  // Open Window function for social link buttons
+  function openWin(url) {
+    myWindow = window.open(url, "myWindow", "width=900px,height=800px");   // Opens a new window
+  }
+
+  // Social URLs
+  const github = 'https://github.com/jrobs87';
+  const linkedIn = '';
+  const instagram = 'https://www.instagram.com/tiktaalikdesign/?hl=en';
+  const twitter = 'https://twitter.com/DesignTiktaalik?lang=en';
+
+  // Social link callers
+  $('#github').on('click', function () {
+    openWin(github);
+  });
+
+  $('#instagram').on('click', function () {
+    openWin(instagram);
+  });
+
+  $('#twitter').on('click', function () {
+    openWin(twitter);
+  });
+
+  $('').on('click', function () {
+    openWin(github);
+  });
+
+  $('#btn-portfolio').on('click', function () {
+    $('#portfolio-modal').css('top', 0);
+    $('#portfolio-modal').css('opacity', 1);
+    $.scrollify.disable();
   })
 
-  console.log('Site loaded - send it, Jerry!');
+ 
 
   /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
   particlesJS.load('particles-js', 'assets/js/particles.json', function () {
     console.log('callback - particles.js config loaded');
-
 
     // ===== LAUNCH SPLASH PAGE ==================== 
 
@@ -94,6 +122,7 @@ $(document).ready(function () {
     $('#start').css('top', '8em');
 
     $.scrollify.disable();
+
     let clicks = 0;
     // single use function to fire off the splash events and then unbind itself from the click handler (squashed second bug today on 06.01!!)
     // The second bug was a scroll event parameter related to it being a passive event handler and google changed the browser default.  
@@ -116,11 +145,10 @@ $(document).ready(function () {
         pJSDom[0].pJS.interactivity.modes.push.particles_nb = 3;
         console.log('mouse click behavior changed to bubble');
 
-// need this minor delay to ensure push/repulse animation finishes, then switch to grab
-         setTimeout(function() {
+        // need this minor delay to ensure push/repulse animation finishes, then switch to grab
+        setTimeout(function () {
           pJSDom[0].pJS.interactivity.events.onhover.mode = 'grab';
-         },100)
-        
+        }, 100)
 
         console.log('Splash Page init');
 
@@ -141,10 +169,8 @@ $(document).ready(function () {
         // changing mouse click behavior to bubble to prevent user from adding too many particles and affecting performance
         //  pJSDom[0].pJS.interactivity.events.onclick.mode = 'bubble';
         //  console.log('mouse click behavior changed to bubble')
-      }
-
-    })
-
+      };
+    });
 
     // Global Objects and Functions
 
@@ -156,7 +182,6 @@ $(document).ready(function () {
     // Nav menu toggle icon
     let toggle = $('#nav-toggle'); // set toggle element to variable  
     let navMain = $('#nav-main');
-
 
     // Toggle the nav-main element opened or closed
     $('#nav-toggle').click(function () {
@@ -240,19 +265,20 @@ $(document).ready(function () {
       $('.nav-link-container').css('top', '-10em'); // reset position
       $('.nav-link-container').css('opacity', '0');
 
-      // cursorReset(); // reset to section defaults for cursor
+      cursorReset(); // reset to section defaults for cursor
     })
-
   });
-
-  // setTimeout(function() {
-  //   $('#one').css('background', '#4C2A85');
-  // },3000);
 
   // Nav 
   $('.collapsible').collapsible();
 
 
+    
+    $('.tabs').tabs();
+  
+
   $.scrollify.instantMove(0);
+
+  console.log('Site loaded - send it, Jerry!');
 });
 

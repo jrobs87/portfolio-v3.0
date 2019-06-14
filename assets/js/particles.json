@@ -54,7 +54,7 @@
     },
     "move": {
       "enable": true,
-      "speed": 1.33,
+      "speed": 1.66,
       "direction": "none",
       "random": true,
       "straight": false,
@@ -94,7 +94,7 @@
         "speed": 100
       },
       "repulse": {
-        "distance": 66
+        "distance": 99
       },
       "push": {
         "particles_nb": 33
